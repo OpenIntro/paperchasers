@@ -2,12 +2,22 @@
     Page: register and login
 */
 
+.page-login {
+    background-color: #2D313D;
+}
+
+.bg-keyboard {
+    min-height: 735px;
+    background: url("../img/splash/bg6.jpg") top center no-repeat;
+    background-size: cover;
+}
+
 .form-box {    
     width: 360px;
     margin: 90px auto 0 auto;
     .header {
         .border-radius(4px, 4px, 0, 0);
-        background: @olive;
+        background: rgba(60,141,188, 0.3);
         box-shadow: inset 0px -3px 0px rgba(0,0,0,0.2);
         padding: 20px 10px;
         text-align: center;
@@ -29,6 +39,13 @@
         
         > .btn {
             margin-bottom: 10px;
+            color: #fff;
+            background-color: @brand-color-main;
+            transition: background .5s ease-in;
+
+            &:hover {
+                background-color: darken(@brand-color-main, 10);
+            }
         }
     }
     

@@ -60,6 +60,8 @@ $(function() {
         }
     });
 
+    $('.collapsed-box .box-body').hide();
+
     /*
      * ADD SLIMSCROLL TO THE TOP NAV DROPDOWNS
      * ---------------------------------------

@@ -15,6 +15,8 @@
         <link href="//code.ionicframework.com/ionicons/1.5.2/css/ionicons.min.css" rel="stylesheet" type="text/css" />
         <!-- DATA TABLES -->
         <link href="css/plugins/datatables/dataTables.bootstrap.css" rel="stylesheet" type="text/css" />
+        <!-- Star Rating -->
+        <link href="css/plugins/star-rating/star-rating.min.css" rel="stylesheet" type="text/css" />
         <!-- Theme style -->
         <link href="css/main.css" rel="stylesheet" type="text/css" />
 
@@ -157,13 +159,13 @@
                                 <span>Customers</span>
                             </a>
                         </li>
-                        <li>
+                        <li class="active">
                             <a href="servers.html">
                                 <i class="fa fa-user"></i>
                                 <span>Servers</span>
                             </a>
                         </li>
-                        <li class="active">
+                        <li>
                             <a href="forms.html">
                                 <i class="fa fa-file-text-o"></i>
                                 <span>Forms</span>
@@ -185,201 +187,152 @@
                 <!-- Content Header (Page header) -->
                 <section class="content-header">
                     <h1>
-                        Affidavit of Service - Job #0007
+                        Add Server
                     </h1>
                     <ol class="breadcrumb">
                         <li><a href="dashboard.html"><i class="fa fa-dashboard"></i> Home</a></li>
-                        <li class="active">Affidavit of Service</li>
+                        <li class="active">Add Server</li>
                     </ol>
                 </section>
 
-                <!-- Content Header (Page header) -->
-                <div class="pad margin no-print">
-                    <div class="alert alert-info" style="margin-bottom: 0!important;">
-                        <i class="fa fa-info"></i>
-                        <b>Note:</b> This page has been enhanced for printing. Click the print button at the bottom of the invoice to test.
-                    </div>
-                </div>
-
                 <!-- Main content -->
-                <section class="content invoice">
-                    <!-- title row -->
+                <section class="content">
+
+                    <!-- Main row -->
                     <div class="row">
-                        <div class="col-xs-12">
-                            <h2 class="page-header">
-                                Affidavit of Service
-                            </h2>
-                        </div><!-- /.col -->
-                    </div>
+                        <section class="col-xs-12">
+                            <div class="box box-server">
+                                <div class="box-header">
+                                    <h3 class="box-title">Server Information</h3>
+                                </div><!-- /.box-header -->
+                                <div class="box-body row">
+                                    <div class="form-group col-sm-6">
+                                        <label for="serverName">Server Name</label>
+                                        <input type="text" class="form-control" id="server-name" placeholder="Enter Server Name">
+                                    </div>
+                                    <div class="form-group col-sm-6">
+                                        <label for="serverName">Company Name</label>
+                                        <input type="text" class="form-control" id="company-name" placeholder="Enter Company Name">
+                                    </div>
+                                    <div class="form-group col-sm-6">
+                                        <label for="serverName">Email Address</label>
+                                        <input type="email" class="form-control" id="server-email" placeholder="Enter Server's Email Address">
+                                    </div>
+                                    <div class="form-group col-sm-6">
+                                        <label for="serverName">Phone Number</label>
+                                        <div class="input-group">
+                                            <div class="input-group-addon">
+                                                <i class="fa fa-phone"></i>
+                                            </div>
+                                            <input type="tel" id="server-phone" class="form-control" data-inputmask='"mask": "(999) 999-9999"' data-mask/>
+                                        </div>
+                                    </div>
+                                    <div class="form-group col-sm-6">
+                                        <label for="serverName">Street Address</label>
+                                        <input type="text" class="form-control" id="server-email" placeholder="Enter Street Address">
+                                    </div>
+                                    <div class="form-group col-sm-6">
+                                        <label for="serverName">City</label>
+                                        <input type="text" class="form-control" id="server-email" placeholder="Enter City">
+                                    </div>
+                                    <div class="form-group col-sm-6">
+                                        <label for="serverName">State</label>
+                                        <select class="form-control">
+                                            <option value="">- Select -</option>
+                                            <option value="AL">Alabama</option>
+                                            <option value="AK">Alaska</option>
+                                            <option value="AZ">Arizona</option>
+                                            <option value="AR">Arkansas</option>
+                                            <option value="CA">California</option>
+                                            <option value="CO">Colorado</option>
+                                            <option value="CT">Connecticut</option>
+                                            <option value="DE">Delaware</option>
+                                            <option value="DC">District Of Columbia</option>
+                                            <option value="FL">Florida</option>
+                                            <option value="GA">Georgia</option>
+                                            <option value="HI">Hawaii</option>
+                                            <option value="ID">Idaho</option>
+                                            <option value="IL">Illinois</option>
+                                            <option value="IN">Indiana</option>
+                                            <option value="IA">Iowa</option>
+                                            <option value="KS">Kansas</option>
+                                            <option value="KY">Kentucky</option>
+                                            <option value="LA">Louisiana</option>
+                                            <option value="ME">Maine</option>
+                                            <option value="MD">Maryland</option>
+                                            <option value="MA">Massachusetts</option>
+                                            <option value="MI">Michigan</option>
+                                            <option value="MN">Minnesota</option>
+                                            <option value="MS">Mississippi</option>
+                                            <option value="MO">Missouri</option>
+                                            <option value="MT">Montana</option>
+                                            <option value="NE">Nebraska</option>
+                                            <option value="NV">Nevada</option>
+                                            <option value="NH">New Hampshire</option>
+                                            <option value="NJ">New Jersey</option>
+                                            <option value="NM">New Mexico</option>
+                                            <option value="NY">New York</option>
+                                            <option value="NC">North Carolina</option>
+                                            <option value="ND">North Dakota</option>
+                                            <option value="OH">Ohio</option>
+                                            <option value="OK">Oklahoma</option>
+                                            <option value="OR">Oregon</option>
+                                            <option value="PA">Pennsylvania</option>
+                                            <option value="RI">Rhode Island</option>
+                                            <option value="SC">South Carolina</option>
+                                            <option value="SD">South Dakota</option>
+                                            <option value="TN">Tennessee</option>
+                                            <option value="TX">Texas</option>
+                                            <option value="UT">Utah</option>
+                                            <option value="VT">Vermont</option>
+                                            <option value="VA">Virginia</option>
+                                            <option value="WA">Washington</option>
+                                            <option value="WV">West Virginia</option>
+                                            <option value="WI">Wisconsin</option>
+                                            <option value="WY">Wyoming</option>
+                                        </select> 
+                                    </div>
+                                    <div class="form-group col-sm-6">
+                                        <label for="serverName">Zip Code</label>
+                                        <input type="tel" class="form-control" id="server-email" placeholder="Enter Zip Code">
+                                    </div>
+                                    <div class="col-sm-6 form-group">
+                                        <label for="serverName">County</label>
+                                        <input type="text" class="form-control" id="server-email" placeholder="Enter Server's Main County of Business">
+                                    </div>
+                                    <div class="col-sm-6 form-group">
+                                        <label for="serverName">Rating</label>
+                                        <input type="text" id="server-rating" class="rating" data-min="0" data-max="5" data-step="0.5" data-size="xs">
+                                    </div>
 
-                    <!-- info row -->
-                    <div class="row">
-                        <div class="col-sm-12 text-center cause">
-                            <strong>CAUSE NO: 502014CA003089XXXXMBAE</strong>
-                        </div><!-- /.col -->
-                    </div><!-- /.row -->
+                                    <div class="form-group col-sm-12">
+                                        <label for="serverName">Notes</label>
+                                        <textarea rows="4" class="form-control"></textarea>
+                                    </div>
+                                </div>
+                                <div class="box-footer">
+                                <a href="servers.html"><button class="btn bg-job btn-flat btn-block text-white btn-hover">Save Info</button></a>
+                                </div>
+                            </div> 
+                        </section>
+                    </div><!-- /.row (main row) -->
 
-                    <!-- Court Details-->
-                    <div class="row invoice-info">
-                        <div class="col-sm-4 invoice-col">
-                            <strong>MICHAEL JORDAN<br />
-                            VS<br />
-                            LEBRON JAMES</strong>
-                        </div><!-- /.col -->
-                        <div class="col-sm-4 invoice-col">
-
-                        </div><!-- /.col -->
-                        <div class="col-sm-4 invoice-col">
-                            <strong>15<sup>th</sup> CIRCUIT COURT<br /><br />
-                            PALM BEACH COUNTY, FLORIDA</strong>
-                        </div><!-- /.col -->
-                    </div><!-- /.row -->
-
-                    <!-- Documents row -->
-                    <div class="row aff-row">
-                        <div class="col-xs-12">
-                        Documents: <strong>SUBPOENA DUCES TECUM</strong>
-                        </div><!-- /.col -->
-                    </div><!-- /.row -->
-
-                    <!-- Received on -->
-                    <div class="row aff-row">
-                        <div class="col-xs-12">
-                        Received on: _________________________ at __________ A.M. / P.M. the above documents to be delivered to:
-                        </div><!-- /.col -->
-                    </div><!-- /.row -->
-                    <div class="row aff-row">
-                        <div class="col-xs-12">
-                            <strong>DONNY DONNINGTON <br />
-                            1234 MAIN STREET, DALLAS, TX 75231</strong>
-                        </div><!-- /.col -->
-                    </div><!-- /.row -->
-
-                    <!-- Received on -->
-                    <div class="row aff-row">
-                        <div class="col-xs-12">
-                        I, _______________________________, the undersigned, being duly sworn, depose and say, that I am duly authorized under to
-                        make delivery of the document(s) listed herein in the above styled case. I am over the age of 18, and am not a party to or
-                        otherwise interested in this matter. Delivery of said documents occurred in the following manner:
-                        </div><!-- /.col -->
-                    </div><!-- /.row -->
-
-                     <div class="row aff-row">
-                        <div class="col-xs-12">
-                            <strong>By delivering to:</strong>____________________________________________________________________________
-                        </div><!-- /.col -->
-                    </div><!-- /.row -->
-
-                    <div class="row aff-row">
-                        <div class="col-xs-12">
-                            <strong>(Title / Relationship):</strong>________________________________________________________________________
-                        </div><!-- /.col -->
-                    </div><!-- /.row -->
-
-                    <div class="row aff-row">
-                        <div class="col-xs-12">
-                            <strong>Address of Service:</strong>__________________________________________________________________________
-                        </div><!-- /.col -->
-                    </div><!-- /.row -->
-
-                    <div class="row aff-row">
-                        <div class="col-xs-12">
-                            <strong>Date of Service:</strong>_____________________________________ <strong>Time of Service:</strong> _________________________
-                        </div><!-- /.col -->
-                    </div><!-- /.row -->
-
-                    <div class="row aff-row chk-row">
-                        <div class="col-xs-12">
-                            <strong>Type of Service:</strong><br />
-                            <div class="checkbox">
-                                <label>
-                                    <input type="checkbox">
-                                    <strong>PERSONAL SERVICE:</strong> Individually and personally to the above named recipient.
-                                </label>
-                            </div>
-                            <div class="checkbox">
-                                <label>
-                                    <input type="checkbox">
-                                    <strong>CORPORATION / PARTNERSHIP:</strong> By delivering a true copy of said process to an officer, agent or partner of the above
-                                    named entity whose name and title is listed above.
-                                </label>
-                            </div>
-                            <div class="checkbox">
-                                <label>
-                                    <input type="checkbox">
-                                    <strong>POSTING WITH COURT ORDER:</strong> By posting a true copy of said process along with a true copy of the Court Order to the
-                                    front entrance of the above listed address.
-                                </label>
-                            </div>
-                            <div class="checkbox">
-                                <label>
-                                    <input type="checkbox">
-                                    <strong>NOT FOUND / NOT DELIVERED:</strong> for the following reason: <br/>_______________________________________________________________________________________________________________________________________<br/>
-                                    _______________________________________________________________________________________________________________________________________
-                                </label>
-                            </div>
-
-                            <div class="text-center"><strong>&#8220;I declare under penalties of perjury that the information contained herein is true and correct&#8221;</strong></div>
-                        </div><!-- /.col -->
-                    </div><!-- /.row -->
-
-                    <div class="row aff-row">
-                        <div class="col-xs-5">
-                            ______________________________________________<br />
-                            Signature           <span class="pull-right">PS#__________</span><br />
-                                               <span class="pull-right">EXP:__________</span>
-                        </div><!-- /.col -->
-
-                        <div class="col-xs-5 col-xs-offset-2">
-                            Subscribed and sworn to before me, a notary <br />
-                            public on _______________________, 20___ <br /><br />
-
-                            _________________________________________<br />
-                            Notary Public in and of the State of Texas
-                        </div><!-- /.col -->
-                    </div><!-- /.row -->
-
-                    <!-- this row will not appear when printing -->
-                    <div class="row no-print form-buttons">
-                        <div class="col-xs-12">
-                            <button class="btn btn-default" onclick="window.print();"><i class="fa fa-print"></i> Print</button>
-                            <button class="btn btn-success pull-right" data-toggle="modal" data-target="#email-server"><i class="fa fa-envelope"></i> Email Server</button>
-                            <button class="btn btn-primary pull-right" style="margin-right: 5px;"><i class="fa fa-download"></i> Generate PDF</button>
-                        </div>
-                    </div>
                 </section><!-- /.content -->
             </aside><!-- /.right-side -->
         </div><!-- ./wrapper -->
 
-        <div class="modal fade" id="email-server">
-          <div class="modal-dialog">
-            <div class="modal-content">
-              <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-                <h4 class="modal-title">Confirm Send</h4>
-              </div>
-              <div class="modal-body">
-                <p>You are sending this affadavit (along with the listed attached files) to Jane Janakowski (jane@retrievelegal.com)</p>
-                <p><strong>Attached Files:</strong></p>
-                <div class="checkbox">
-                    <label>
-                        <i class="fa fa-check"></i>
-                        SUBPOENA DUCES TECUM
-                    </label>
-                </div>
-              </div>
-              <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
-                <button type="button" class="btn btn-primary">Send Affidavit</button>
-              </div>
-            </div><!-- /.modal-content -->
-          </div><!-- /.modal-dialog -->
-        </div><!-- /.modal -->
+        <!-- add new calendar event modal -->
 
 
         <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
         <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js" type="text/javascript"></script>
         <script src="//code.jquery.com/ui/1.11.1/jquery-ui.min.js" type="text/javascript"></script>
+
+        <!-- InputMask -->
+
+
+        <!-- Star Rating Plugin -->
+        <script src="js/plugins/star-rating/star-rating.min.js" type="text/javascript"></script>
 
         <!-- Paperchasers App -->
         <script src="js/paperchasers/app.js" type="text/javascript"></script>
@@ -387,7 +340,7 @@
         <!-- page script -->
         <script type="text/javascript">
             $(function() {
-                
+                $('.rating').rating();
             });
         </script>
 

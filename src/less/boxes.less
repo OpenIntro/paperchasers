@@ -14,7 +14,7 @@
 
     // Box color variations
     &.box-primary {
-        border-top-color: @light-blue;
+        border-top-color: @brand-color-main;
     }
     &.box-info {
         border-top-color: @aqua;
@@ -27,6 +27,13 @@
     }
     &.box-success {
         border-top-color: @green;
+    }
+
+    &.box-customer {
+        border-top-color: @customer-color;
+    }
+    &.box-server {
+        border-top-color: @server-color;
     }
 
     // fixed height to 300px
@@ -166,7 +173,7 @@
 
         // Box color variations
         &.box-primary {
-            .box-solid-variant(@light-blue);
+            .box-solid-variant(@brand-color-main);
         }
         &.box-info {
             .box-solid-variant(@aqua);
@@ -179,6 +186,13 @@
         }
         &.box-success {
             .box-solid-variant(@green);
+        }
+
+        &.box-customer {
+            .box-solid-variant(@customer-color);
+        }
+        &.box-server {
+            .box-solid-variant(@server-color);
         }
 
         > .box-header > .box-tools .btn {

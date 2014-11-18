@@ -15,6 +15,8 @@
         <link href="//code.ionicframework.com/ionicons/1.5.2/css/ionicons.min.css" rel="stylesheet" type="text/css" />
         <!-- DATA TABLES -->
         <link href="css/plugins/datatables/dataTables.bootstrap.css" rel="stylesheet" type="text/css" />
+        <!-- Star Rating -->
+        <link href="css/plugins/star-rating/star-rating.min.css" rel="stylesheet" type="text/css" />
         <!-- Theme style -->
         <link href="css/main.css" rel="stylesheet" type="text/css" />
 
@@ -28,9 +30,9 @@
     <body class="skin-blue">
         <!-- header logo: style can be found in header.less -->
         <header class="header">
-            <a href="index.html" class="logo">
+            <a href="dashboard.html" class="logo">
                 <!-- Add the class icon to your logo image or logo icon to add the margining -->
-                PaperChasers
+                <img src="img/logo1.png" width="30" height="30"> PaperChasers
             </a>
             <!-- Header Navbar: style can be found in header.less -->
             <nav class="navbar navbar-static-top" role="navigation">
@@ -141,7 +143,7 @@
                     <!-- sidebar menu: : style can be found in sidebar.less -->
                     <ul class="sidebar-menu">
                         <li>
-                            <a href="index.html">
+                            <a href="dashboard.html">
                                 <i class="fa fa-dashboard"></i> <span>Dashboard</span>
                             </a>
                         </li>
@@ -185,11 +187,11 @@
                 <!-- Content Header (Page header) -->
                 <section class="content-header">
                     <h1>
-                        New Server
+                        Servers <a href="serverAdd.html"><button class="btn bg-job btn-flat text-white btn-hover">Add New Server</button></a>
                     </h1>
                     <ol class="breadcrumb">
-                        <li><a href="index.html"><i class="fa fa-dashboard"></i> Home</a></li>
-                        <li class="active">New Server</li>
+                        <li><a href="dashboard.html"><i class="fa fa-dashboard"></i> Home</a></li>
+                        <li class="active">Servers</li>
                     </ol>
                 </section>
 
@@ -198,7 +200,84 @@
 
                     <!-- Main row -->
                     <div class="row">
-                   hi
+                        <!-- Left col -->
+                        <section class="col-xs-12 data-table">                            
+
+                            <div class="box box-server">
+                                <div class="box-body table-responsive">
+                                    <table id="servers-table" class="table table-bordered table-hover">
+                                        <thead>
+                                            <tr>
+                                                <th>Company Name</th>
+                                                <th>Name</th>
+                                                <th>Active Jobs</th>
+                                                <th>Total Jobs</th>
+                                                <th>County</th>
+                                                <th>City</th>
+                                                <th>State</th>
+                                                <th>Rating</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>Retrieve Legal</td>
+                                                <td>Jane Janakowski</td>
+                                                <td>9</td>
+                                                <td>54</td>
+                                                <td>Dallas</td>
+                                                <td>Dallas</td>
+                                                <td>Texas</td>
+                                                <td><input id="rating-1" class="rating" value="5" data-min="0" data-max="5" data-step="0.5"></td>
+                                            </tr>
+                                            <tr>
+                                                <td>Bill's Servers</td>
+                                                <td>Bill Baker</td>
+                                                <td>3</td>
+                                                <td>20</td>
+                                                <td>Dallas</td>
+                                                <td>Highland Park</td>
+                                                <td>Texas</td>
+                                                <td><input id="rating-2" class="rating" value="3.5" data-min="0" data-max="5" data-step="0.5"></td>
+                                            </tr>
+                                            <tr>
+                                                <td>Process Promise</td>
+                                                <td>Pat Promeo</td>
+                                                <td>2</td>
+                                                <td>26</td>
+                                                <td>Dallas</td>
+                                                <td>Dallas</td>
+                                                <td>Texas</td>
+                                                <td><input id="rating-3" class="rating" value="4" data-min="0" data-max="5" data-step="0.5"></td>
+                                            </tr>
+                                            <tr>
+                                                <td>Paper Squared</td>
+                                                <td>Sam Sherwood</td>
+                                                <td>4</td>
+                                                <td>11</td>
+                                                <td>Collin</td>
+                                                <td>McKinney</td>
+                                                <td>Texas</td>
+                                                <td><input id="rating-4" class="rating" value="2" data-min="0" data-max="5" data-step="0.5"></td>
+                                            </tr>
+                                            <tr>
+                                                <td>ABC Serves</td>
+                                                <td>John Doe</td>
+                                                <td>7</td>
+                                                <td>30</td>
+                                                <td>Tarrant</td>
+                                                <td>Arlington</td>
+                                                <td>Texas</td>
+                                                <td><input id="rating-5" class="rating" value="4.5" data-min="0" data-max="5" data-step="0.5"></td>
+                                            </tr>
+                                        </tbody>
+                                        <tfoot>
+                                            
+                                        </tfoot>
+                                    </table>
+                                </div><!-- /.box-body -->
+                            </div><!-- /.box -->
+                        </section><!-- /.Left col -->
+
                     </div><!-- /.row (main row) -->
 
                 </section><!-- /.content -->
@@ -212,17 +291,12 @@
         <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js" type="text/javascript"></script>
         <script src="//code.jquery.com/ui/1.11.1/jquery-ui.min.js" type="text/javascript"></script>
 
-        <!-- daterangepicker -->
-        <script src="js/plugins/daterangepicker/daterangepicker.js" type="text/javascript"></script>
-        <!-- datepicker -->
-        <script src="js/plugins/datepicker/bootstrap-datepicker.js" type="text/javascript"></script>
-
         <!-- DATA TABLES SCRIPT -->
         <script src="js/plugins/datatables/jquery.dataTables.js" type="text/javascript"></script>
         <script src="js/plugins/datatables/dataTables.bootstrap.js" type="text/javascript"></script>
 
-        <!-- Dashboard -->
-        <script src="js/paperchasers/dashboard.js" type="text/javascript"></script>
+        <!-- Star Rating Plugin -->
+        <script src="js/plugins/star-rating/star-rating.min.js" type="text/javascript"></script>
 
         <!-- Paperchasers App -->
         <script src="js/paperchasers/app.js" type="text/javascript"></script>
@@ -230,7 +304,21 @@
         <!-- page script -->
         <script type="text/javascript">
             $(function() {
-                $("#dashboard-jobs").dataTable();
+                $("#servers-table").dataTable({
+                    "columnDefs": [
+                        { "width": "125px", "targets": 7 }
+                    ],
+                    "order": [ 7, 'asc' ],
+                    "oLanguage": {
+                     "sSearch": "Filter: "
+                   }
+                });
+
+                $("#servers-table tbody tr").on('click', function() {
+                    location.href="serverView.html"
+                });
+
+                $('.rating').rating("refresh", {disabled:true, showClear:false, showCaption: false, size: 'xs'});
             });
         </script>
 
