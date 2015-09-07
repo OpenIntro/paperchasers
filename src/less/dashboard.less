@@ -1,0 +1,190 @@
+/* 
+    Page: Dashbboard
+*/
+.job-active {
+    background-color: #00a65a;
+}
+.job-rush {
+    background-color: #f56954;
+}
+.job-expedited {
+    background-color: #f39c12;
+}
+
+.data-table {
+    td span.label {
+        width: 100%;
+        display: block;
+    }
+
+    /* for row hovers if needed */
+    .table tbody tr:hover td {
+        cursor: pointer;
+        background-color: #eee;
+    }
+}
+
+.recent-activity {
+    ul {
+        li {
+            padding: 5px 0;
+
+            .fa {
+                margin-right: 10px;
+            }
+        }
+        li:nth-child(odd)       { background-color:#eee; }
+        li:nth-child(even)      { background-color:#fff; }
+    }  
+}
+
+
+.show-rush .row-active       { display: none ; }
+.show-rush .row-exp          { display: none ; }
+.show-expedited .row-active  { display: none ; }
+.show-expedited .row-rush    { display: none ; }
+
+span.between {
+    position: absolute;
+    right: -10px;
+    top: 31px;
+}
+
+#job-type {
+    .routine.active {
+        background-color: #00A65A;
+        color: #fff;
+    }
+    .rush.active {
+        background-color: #F56954;
+        color: #fff;
+    }
+    .exp.active {
+        background-color: #F39C12;
+        color: #fff;
+    }
+}
+
+
+
+// Overdue Action Date
+@-webkit-keyframes overdue {
+    0% {
+        background-color: inherit;
+    }
+    50% {
+        background-color: red;
+    }
+    100% {
+        background-color: inherit;
+    }
+}
+@-moz-keyframes overdue {
+    0% {
+        background-color: inherit;
+    }
+    50% {
+        background-color: red;
+    }
+    100% {
+        background-color: inherit;
+    }
+}
+@-o-keyframes overdue {
+    0% {
+        background-color: inherit;
+    }
+    50% {
+        background-color: red;
+    }
+    100% {
+        background-color: inherit;
+    }
+}
+@keyframes overdue {
+    0% {
+        background-color: inherit;
+    }
+    50% {
+        background-color: red;
+    }
+    100% {
+        background-color: inherit;
+    }
+}
+.overdue {
+  -webkit-animation: overdue 3s infinite; /* Safari 4+ */
+  -moz-animation:    overdue 3s infinite; /* Fx 5+ */
+  -o-animation:      overdue 3s infinite; /* Opera 12+ */
+  animation:         overdue 3s infinite; /* IE 10+ */
+}
+
+
+.disposition {
+    .radio {
+        float: left;
+    }
+    .radio+.radio {
+        margin-top: 10px;
+    }
+}
+
+/* 
+    Page: Servers
+*/
+.server-data {
+    font-size: 16px;
+}
+
+.content-header {
+    h1 {
+        .btn {
+            padding: 0 10px;
+            .border-radius(4px);
+            margin-left: 10px;
+        }
+    }
+}
+
+/* Miscellaneous */
+.form-group {
+    label {
+        font-style: italic;
+    }
+}
+.btn-hover {
+    transition: background-color 200ms linear;
+
+    &:hover {
+        background-color: darken(@brand-color-main, 10%) !important;
+        
+    }
+}
+
+.rating-disabled {
+    cursor: pointer;
+}
+.data-table {
+    .rating-xs {
+        font-size: 1em;
+    }
+}
+
+/* Affidavit Styles */
+/* This is for the demo. Styles will need to be redone */
+.cause {
+    margin-bottom: 20px;
+}
+.form-buttons {
+    margin-top: 30px;
+}
+.aff-row {
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+.chk-row {
+    .checkbox {
+        margin-bottom: 20px;
+    }
+}
