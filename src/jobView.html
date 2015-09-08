@@ -216,9 +216,9 @@
                                             Due Date: <strong><span id="due-date">November 15, 2014</span></strong>
                                         </div>
 
-                                        <div class="col-md-2 col-md-offset-3">
-                                            <a href="forms.html"><button class="btn btn-primary pull-right" style="margin-right: 5px;"><i class="fa fa-file-text-o"></i> Generate Affidavit</button></a><br /><br />
-                                            <button class="btn btn-primary pull-right" style="margin-right: 5px;" data-toggle="modal" data-target="#exampleModal" data-whatever="@twbootstrap"><i class="fa fa-envelope"></i> Email Client&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</button>
+                                        <div class="col-md-4 col-md-offset-1">
+                                            <a href="forms.html"><button class="btn btn-primary pull-right btn-hover" style="margin-right: 5px;"><i class="fa fa-file-text-o"></i> Generate Affidavit</button></a>
+                                            <button class="btn btn-primary pull-right btn-hover" style="margin-right: 5px;" data-toggle="modal" data-target="#exampleModal" data-whatever="@twbootstrap"><i class="fa fa-envelope"></i> Email Client&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</button>
                                         </div>
                                     </div>
                                 </div><!-- /.box-body -->
@@ -227,7 +227,7 @@
                     </div><!-- /. row (job type) -->
 
                     <div class="row">
-                        <div class="col-md-12">
+                        <div class="col-md-6">
                             <!-- Case Info-->
                             <div class="box box-primary">
                                 <div class="box-header">
@@ -284,7 +284,7 @@
                                         </div>
 
                                         <div class="row">
-                                            <div class="col-sm-6">
+                                            <div class="col-sm-12">
                                                 <div class="row">
                                                     <div class="col-xs-12">
                                                         <div class="form-group">
@@ -331,12 +331,6 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div class="col-sm-6">
-                                                <div class="form-group">
-                                                    <label for="firmName">Notes (for office use only)</label>
-                                                    <textarea rows="8" class="form-control"></textarea>
-                                                </div>
-                                            </div>
                                         </div>
 
                                         <div class="row">
@@ -353,6 +347,13 @@
                                                     <textarea class="form-control" rows="3" placeholder="SUBPOENA DUCES TECUM" disabled=""></textarea>
                                                 </div>
                                             </div>
+
+                                            <div class="col-sm-12">
+                                                <div class="form-group">
+                                                    <label for="firmName">Notes (for office use only)</label>
+                                                    <textarea class="form-control"></textarea>
+                                                </div>
+                                            </div>
                                         </div>
 
                                     </div><!-- /.box-body -->
@@ -362,6 +363,92 @@
                                 </div>
                             </div><!-- /.box -->
                         </div><!-- end case info section -->
+
+                        <!-- Activity Log -->
+                        <div class="col-md-6">
+                            <div class="box box-success">
+                                <div class="box-header" style="cursor: move;">
+                                    <i class="fa fa-comments-o"></i>
+                                    <h3 class="box-title">Job Log</h3>
+                                    <div class="box-tools pull-right" data-toggle="tooltip" title="" data-original-title="Status">
+                                        <div class="btn-group" data-toggle="btn-toggle">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="box-body chat" id="chat-box">
+                                    <!-- chat item -->
+                                    <div class="item">
+                                        <img src="img/avatar3.png" alt="user image" class="online">
+                                        <p class="message">
+                                            <a href="#" class="name">
+                                                <small class="text-muted pull-right"><i class="fa fa-clock-o"></i> 2:15</small>
+                                                Darla
+                                            </a>
+                                            I've attached a new document to send to the server on file.
+                                        </p>
+                                        <div class="attachment">
+                                            <h4>Attachments:</h4>
+                                            <p class="filename">
+                                                new-document.pdf
+                                            </p>
+                                            <div class="pull-right">
+                                                <button class="btn btn-primary btn-sm btn-flat">Open</button>
+                                            </div>
+                                        </div><!-- /.attachment -->
+                                    </div><!-- /.item -->
+                                    <!-- chat item -->
+                                    <div class="item">
+                                        <img src="img/avatar2.png" alt="user image" class="offline">
+                                        <p class="message">
+                                            <a href="#" class="name">
+                                                <small class="text-muted pull-right"><i class="fa fa-clock-o"></i> 5:15</small>
+                                                Brianna
+                                            </a>
+                                            At 5:22pm, no answer. Left notice. At 7:30pm, notice was done, but no answer. Updated client.
+                                        </p>
+                                    </div><!-- /.item -->
+                                    <!-- chat item -->
+                                    <div class="item">
+                                        <img src="img/avatar3.png" alt="user image" class="online">
+                                        <p class="message">
+                                            <a href="#" class="name">
+                                                <small class="text-muted pull-right"><i class="fa fa-clock-o"></i> 5:30</small>
+                                                Darla
+                                            </a>
+                                            11/18 He's supposed to be home today/tonight. We will see.
+                                        </p>
+                                    </div><!-- /.item -->
+                                    <div class="item">
+                                        <img src="img/avatar3.png" alt="user image" class="online">
+                                        <p class="message">
+                                            <a href="#" class="name">
+                                                <small class="text-muted pull-right"><i class="fa fa-clock-o"></i> 2:15</small>
+                                                Darla
+                                            </a>
+                                            If he isn't at this residence, please try to find out anything about where he may be. He is 19 years old and
+                                            I have attached a picture that we found off of Facebook.
+                                        </p>
+                                        <div class="attachment">
+                                            <h4>Attachments:</h4>
+                                            <p class="filename">
+                                                Donny-Donnington-Picture.jpg
+                                            </p>
+                                            <div class="pull-right">
+                                                <button class="btn btn-primary btn-sm btn-flat">Open</button>
+                                            </div>
+                                        </div><!-- /.attachment -->
+                                    </div><!-- /.item -->
+                                </div><!-- /.chat -->
+                                <div class="box-footer">
+                                    <div class="input-group">
+                                        <input class="form-control" placeholder="Type message...">
+                                        <div class="input-group-btn">
+                                            <button class="btn btn-success"><i class="fa fa-plus"></i></button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div><!-- /. row job details -->
 
                     <!-- Client/Server Row -->
