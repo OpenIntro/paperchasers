@@ -1,0 +1,42 @@
+/* Error messaging */
+.form-group .fa-times,
+.form-group .fa-check {
+    color: transparent;
+    position: absolute;
+    right: 10px;
+    top:   10px;
+}
+.form-group {
+    position: relative;
+}
+.parsley-errors-list {
+    display: none;
+}
+.parsley-error {
+    border: 1px solid red !important;
+}
+.parsley-error ~ .fa-times {
+    color: red;
+}
+.parsley-success ~ .fa-check {
+    color: #00AF4F;
+}
+
+.parsley-error ~ h3 {
+    color: red;
+}
+
+
+/* Form */
+.form-group label {
+    color: #3C8DBC;
+}
+.hide-field {
+    position: absolute;
+    left: -999999px;
+}
+span.between {
+    position: absolute;
+    right: -23px;
+    top: 31px;
+}
