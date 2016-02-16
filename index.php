@@ -79,10 +79,10 @@ exit;
         <div class="social">
             <a href="#" target="_blank" rel="nofollow"><img src="img/splash/twitter.png" width="22" height="18"></a>
             <a href="#" target="_blank" rel="nofollow"><img src="img/splash/facebook.png" width="10" height="22"></a>
-            <p>support@serversdashboard.com</p>
+            <p>support@paperchasers.com</p>
         </div>
         
-        v.<span class="version">0.5</span>
+        v.<span class="version">0.1</span>
     </footer>
 
             </body>

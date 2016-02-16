@@ -89,7 +89,7 @@ exit;
                                     <h3 class="box-title">Active Jobs</h3>
                                 </div><!-- /.box-header -->
 								<div class="box-body table-responsive">
-                                    <table id="dashboard-jobs" class="table table-bordered table-hover">
+                                    <table id="archived-jobs" class="table table-bordered table-hover">
                                         <thead>
                                             <tr>
                                                 <th>Job #</th>
@@ -119,8 +119,7 @@ if ($conn->connect_error) {
 //echo "Connected successfully";
 
 
-$sql ="SELECT * FROM `jobdetail` join addcustomer on jobdetail.jcid = addcustomer.customerid
- join addserver on jobdetail.jsid = addserver.serverid where jobdetail.jtype = 'archive' "; 
+$sql ="SELECT * FROM `jobdetail` where jtype = 'archive' "; 
 
 $result = $conn->query($sql);
 //print_r ($result->fetch_assoc());
@@ -140,10 +139,10 @@ if ($result->num_rows > 0) {
 												 }
 												echo "<span class='label job-".$tmp."'>".$row['jtype']."</span>";?></td>
                                                <td><?php	echo $row["rdate"] ;?></td>
-                                                <td><?php	echo $row["fname"] ;?></td>
+                                                <td><?php	$tmpid11=$row["jcid"] ; include "customerdashboard.php"; echo $tmpcustomer;?></td>
                                                 <td><?php	echo $row["wname"] ;?></td>
                                                 <td><?php	echo $row["jcity"] ;?></td>
-												<td><?php	echo $row["sname"] ;?></td>
+													<td><?php   $tmpid1=$row["jsid"] ; include "serverdashboard.php"; echo $tmpserver;//echo $row["sname"] ;?></td>
                                                 <td><?php	echo $row["cdisposition"] ;?></td>
                                                 <td><?php	echo $row["adate"] ;?></td>
                                                 <td><?php	echo $row["ddate"] ;?></td>
@@ -209,7 +208,8 @@ mysqli_close($conn);
         <script type="text/javascript">
             $(function() {
                 $("#archived-jobs tbody tr").on('click', function() {
-                    location.href="archiveView.html"
+                     var tmp = $(this).find('.tmp').val();
+                    location.href="archiveView.php?id="+tmp+""
                 });
 
                 $("#archived-jobs").dataTable({

@@ -67,6 +67,8 @@ exit;
                 <section class="content-header">
                     <h1>
                         View Server <button class="btn bg-job btn-flat text-white btn-hover" id="edit-server">Edit Server</button>
+                   <?php $tmparch1 = "deleteserver.php?id=".$_GET['id'];  ?>
+					<a href=<?php echo $tmparch1;?>> <button class="btn bg-job btn-flat text-white btn-hover" id="edit-customer">Delete Server</button></a>
                     </h1>
                     <ol class="breadcrumb">
                         <li><a href="dashboard.php"><i class="fa fa-dashboard"></i> Home</a></li>
@@ -189,14 +191,14 @@ mysqli_close($conn);
 ?> 
 
 </form>
-
-               <!--      <div class="row">
+<?php include "serverjobcount.php"; ?>
+                   <div class="row">
                         <div class="col-lg-4">
        
                             <div class="small-box bg-green">
                                 <div class="inner">
                                     <h3>
-                                        9
+                                       <?php echo $tmpserverjobactive;  ?>
                                     </h3>
                                     <p>
                                         Active Jobs
@@ -216,7 +218,7 @@ mysqli_close($conn);
                             <div class="small-box bg-maroon">
                                 <div class="inner">
                                     <h3>
-                                        54
+                                       <?php echo $tmpserverjobcompleted;  ?>
                                     </h3>
                                     <p>
                                         Completed
@@ -250,7 +252,7 @@ mysqli_close($conn);
                                 </a>
                             </div>
                         </div>
-                    </div -->
+                    </div >
 
                 </section><!-- /.content -->
             </aside><!-- /.right-side -->

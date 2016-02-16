@@ -6,9 +6,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
 $temp_name = rand(100,1000);
 
 $imageFileType = pathinfo($_FILES['fileToUpload']['name'],PATHINFO_EXTENSION);
-$filename = pathinfo($_FILES['fileToUpload']['name'], PATHINFO_FILENAME);
+//$filename = pathinfo($_FILES['fileToUpload']['name'], PATHINFO_FILENAME);
+$fname = "pc_profile_img_".$_POST["maxsignupid"].".".$imageFileType;
 
-$fname = $filename."-".$temp_name.".".$imageFileType;
+//$fname = $filename."-".$temp_name.".".$imageFileType;
 //$target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
 $target_file = $target_dir.$fname;
 //echo basename($_FILES["fileToUpload"]["name"]);
@@ -91,27 +92,34 @@ if ($uploadOk == 0) {
 						else{ 
 												
 					 	//insert
-						
-						$sql="INSERT INTO signup "."(firstname,lastname,semail,password,upic,sidate)".
-						"VALUES "."('".$_POST["firstname"]."','".$_POST["lastname"]."','".$_POST["semail"]."','".$_POST["password"]."','".$fname."',now())";
+						 $spass = md5($_POST["password"]); 
+						$sql="INSERT INTO signup "."(firstname,lastname,semail,password,upic,sidate,ulastlogin)".
+						"VALUES "."('".$_POST["firstname"]."','".$_POST["lastname"]."','".$_POST["semail"]."','".$spass."','".$fname."',now(),now())";
 					
 						if (mysqli_query($conn, $sql)) {
 							//echo "New record created successfully";
 						} else {
 							//echo "Error: " . $sql . "<br>" . mysqli_error($conn);
 						}
+							$lastid = $conn->insert_id;
 						mysqli_close($conn);
+
+include "setting.php";
+						
+$_SESSION['login_user']="logintrue";
+$_SESSION['login_id']= $lastid;						
 							/* Redirect to a different page in the current directory that was requested */
 $host  = $_SERVER['HTTP_HOST'];
 $uri   = rtrim(dirname($_SERVER['PHP_SELF']), '/\\');
-$extra = 'login.php';
+$extra = 'dashboard.php';
 header("Location: http://$host$uri/$extra");
 exit;
 	ob_end_flush();		}			
 				}
 
-?>
 
+include "useridcount.php";
+?>
 <!DOCTYPE html>
 <html class="page-login">
     <head>
@@ -139,7 +147,9 @@ exit;
             <form id="form-signup" class="form-parsley" action="signup.php" method="POST" enctype="multipart/form-data" data-parsley-validate>
                 <div class="body bg-gray">
                     <h3>Sign up for an account</h3>
+					<?php   $maxsignupid = $rowuseridcountresult["max( signupid )"] + 1; ?>
                     <div class="form-group">
+					  <input type="hidden" id="maxsignupid" name="maxsignupid" value=<?php echo $maxsignupid ?>> 
                         <input  type="text" id="firstname" name="firstname" class="form-control" placeholder="First Name" data-parsley-trigger="change" required />
                         <i class="fa fa-times"></i>
                         <i class="fa fa-check"></i>

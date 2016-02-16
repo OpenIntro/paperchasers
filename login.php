@@ -19,10 +19,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 							//die("Connection failed: " . $conn->connect_error);
 						}
 						//echo "Connected successfully";
-						
+						$spass = md5($_POST["password"]); 
 						//select
 						
-						$sql1= "select * from signup where semail='".$_POST["semail"]."'AND password='".$_POST["password"]."'";
+						$sql1= "select * from signup where semail='".$_POST["semail"]."'AND password='".$spass."'";
 						
 						$result = $conn->query($sql1);
 					//	$rtmp = $result->fetch_assoc();
@@ -35,6 +35,8 @@ $_SESSION['login_user']="logintrue"; // Initializing Session
  while($row = $result->fetch_assoc()) {
 $_SESSION['login_id']= $row["signupid"] ;
  }
+ include "updateuserlogin.php";
+  
 header("location: dashboard.php"); // Redirecting To Other Page
 //echo '<script type="text/javascript"> alert(\'ok\'); </script>';
 } else {

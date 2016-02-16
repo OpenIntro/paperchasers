@@ -23,6 +23,7 @@
             <form action="forget.php" method="POST">
                 <div class="body bg-gray">
                     <div class="form-group">
+                    	<label>Please enter your email address</label>
                         <input type="text" name="semail" class="form-control" placeholder="Email Address"/>
                     </div>    
                 </div>
@@ -92,13 +93,27 @@ $tmpkey = generateRandomString();
 						mysqli_close($connn);
 						}
 			// the message
-$msg = "http://jquell.com/paperchasers-design/src/updatepassword.php?fkey=".$tmpkey;
+$host  = $_SERVER['HTTP_HOST'];
+$uri   = rtrim(dirname($_SERVER['PHP_SELF']), '/\\');
+
+// email envelope
+$to  = $_POST["semail"];
+$from = 'info@' . $host;
+$subject = 'Paperchasers Password Reset';
+// email message
+$msg = "You have requested a password reset. Please click the link to continue.";
+$msg .= "http://" . $host . $uri . "/updatepassword.php?fkey=".$tmpkey;
+// email headers
+$headers = "From: Paperchasers <" . $from . ">\r\n";
+$headers .= "Reply-To: ". $from . "\r\n";
+$headers .= "MIME-Version: 1.0\r\n";
+$headers .= "Content-Type: text/html; charset=ISO-8859-1\r\n";
 
 // use wordwrap() if lines are longer than 70 characters
 //$msg = wordwrap($msg,70);
 
 // send email
-mail($_POST["semail"],"reset your password",$msg);
+mail($to, $subject, $msg, $headers);
 
 
 } else {

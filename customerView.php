@@ -65,6 +65,9 @@ exit;
                 <section class="content-header">
                     <h1>
                         View Customer <button class="btn bg-job btn-flat text-white btn-hover" id="edit-customer">Edit Customer</button>
+						<?php $tmparch1 = "deletecustomer.php?id=".$_GET['id'];  ?>
+					<a href=<?php echo $tmparch1;?>><button class="btn bg-job btn-flat text-white btn-hover" id="edit-customer">Delete Customer</button>
+                    
                     </h1>
                     <ol class="breadcrumb">
                         <li><a href="dashboard.html"><i class="fa fa-dashboard"></i> Home</a></li>
@@ -152,6 +155,8 @@ if ($result->num_rows > 0) {
                     </div><!-- /.row (main row) -->
 					
 					</form>
+					
+					
 
                 </section><!-- /.content -->
             </aside><!-- /.right-side -->

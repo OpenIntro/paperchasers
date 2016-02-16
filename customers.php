@@ -221,10 +221,20 @@ mysqli_close($conn);
             $(function() {
                 $("#customers-table").dataTable({
                     "columnDefs": [],
-                    "order": [ 2, 'desc' ],
+                    "order": [ 0, 'asc' ],
                     "oLanguage": {
                      "sSearch": "Filter: "
-                   }
+                   },
+                   "bRetrieve": true,
+                    "fnDrawCallback": function() {
+
+                        $("#customers-table tbody tr").on('click', function() {
+                            var tmp = $(this).find('.tmp').val();
+                        
+                            location.href="customerView.php?id="+tmp+""
+                            
+                        });
+                    }
                 });
 
                 $("#customers-table tbody tr").on('click', function() {

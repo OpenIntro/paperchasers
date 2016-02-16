@@ -44,6 +44,15 @@ exit;
         <!-- Theme style -->
         <link href="css/main.css" rel="stylesheet" type="text/css" />
 
+        <style>
+            .disp-inprocess    {background-color: #fff; }
+            .disp-hold         {background-color: #FFFC7F; }
+            .disp-106          {background-color: #FF9900; }
+            .disp-served       {background-color: #101F78; color: #fff; }
+            .disp-outforfiling {background-color: #660066; color: #fff; }
+            .table-hover tr:hover {color: #000 !important;}
+        </style>
+
         <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
         <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
         <!--[if lt IE 9]>
@@ -237,8 +246,8 @@ if ($conn->connect_error) {
 //echo "Connected successfully";
 
 
-$sql ="SELECT * FROM `jobdetail` join addcustomer on jobdetail.jcid = addcustomer.customerid
- join addserver on jobdetail.jsid = addserver.serverid where jobdetail.jtype != 'archive'  "; 
+$sql ="SELECT * FROM `jobdetail` where jtype != 'archive'  "; 
+
 
 $result = $conn->query($sql);
 //print_r ($result->fetch_assoc());
@@ -247,8 +256,11 @@ if ($result->num_rows > 0) {
 	 while($row = $result->fetch_assoc()) {
     ?>
                                 
-                                        
-                                            <tr class="row-<?php echo strtolower($row['jtype']);?>">
+                                            <?php 
+                                                $disp = strtolower($row["cdisposition"]);
+                                                $disp = str_replace(' ', '', $disp);
+                                            ?>
+                                            <tr class="row-<?php echo strtolower($row['jtype']);?> disp-<?php echo $disp ;?>">
 											<input type="hidden" name="tmp" class="tmp" id="tmp" value= <?php echo $row["jobid"];?> />
                                                 <td><?php	echo $row["jobid"] ;?></td>
                                                 <td><?php $tmp = strtolower($row['jtype']);
@@ -261,10 +273,10 @@ if ($result->num_rows > 0) {
                                                             $rdate = $row["rdate"];
                                                             $rdateNew = date("m-d-Y", strtotime($rdate));
                                                             echo $rdateNew ?></td>
-                                                <td><?php	echo $row["fname"] ;?></td>
+                                                <td><?php	$tmpid11=$row["jcid"] ; include "customerdashboard.php"; echo $tmpcustomer;?></td>
                                                 <td><?php	echo $row["wname"] ;?></td>
-                                                <td><?php	echo $row["jcity"] ;?></td>
-												<td><?php	echo $row["sname"] ;?></td>
+                                                <td><?php	$address = $row["address1"]; $addsplit = explode(",", $address); echo $addsplit[1] ;?></td>
+												<td><?php   $tmpid1=$row["jsid"] ; include "serverdashboard.php"; echo $tmpserver;//echo $row["sname"] ;?></td>
                                                 <td><?php	echo $row["cdisposition"] ;?></td>
                                                 <td><?php
                                                             $adate = $row["adate"];
@@ -315,9 +327,30 @@ mysqli_close($conn);
                                     <h3 class="box-title">Recent Activity</h3>
                                 </div>
                                 <div class="box-body">
-                                    <p>
-                                        This is in progress.
-                                    </p>
+                                    <ul class="list-unstyled">
+									<?php include "RecentActivity.php"; ?>
+									<?php if ($RecentActivityresult->num_rows > 0) {
+	
+	 while($Recentrow = $RecentActivityresult->fetch_assoc()) {
+	 
+	 $tmprec = $Recentrow["lcomment"];
+	 $tmpljid = str_replace("Job #".$Recentrow["ljid"],"",$tmprec);
+	  $tmprec = $tmpljid;
+	 if($Recentrow["chkimg"] ==1)
+	 {
+	   $tmprec = "Attachments: ".$tmprec;
+	 }
+	
+	 $tmprec = "<a href='jobView.php?id=".$Recentrow["ljid"]."'>Job #".$Recentrow["ljid"]."</a> ".$tmprec;
+	 
+	 ?>
+	 <li><i class="fa fa-file-text-o"></i> <?php echo $tmprec ?>.</li>
+	 <?php
+	 
+}
+}	 ?>
+                                        
+                                    </ul>
                                     
                                 </div><!-- /.box-body -->
                             </div>

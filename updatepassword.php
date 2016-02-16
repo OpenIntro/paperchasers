@@ -1,9 +1,8 @@
-	
-		<?php
-		if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+<?php
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 	
 	//echo '<script type="text/javascript"> alert(\'This email address is already registered\'); </script>';
-	
+	ob_start();
 	
 		include "config.php";
 						// Create connection
@@ -13,18 +12,18 @@
 						
 						//Check connection
 						if ($conn->connect_error) {
-							die("Connection failed: " . $conn->connect_error);
+						//	die("Connection failed: " . $conn->connect_error);
 						}
 				
 						
-						
+						 $spass = md5($_POST["semail"]); 
 						//update
-                        $sql = "UPDATE signup SET password='".$_POST["semail"]."' WHERE signupid ='".$_POST['uid']."'";
+                        $sql = "UPDATE signup SET password='".$spass."' WHERE signupid ='".$_POST['uid']."'";
           
 						if (mysqli_query($conn, $sql)) {
 							//echo "New record created successfully";
 						} else {
-							echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+							//echo "Error: " . $sql . "<br>" . mysqli_error($conn);
 						}
 						
 						//update
@@ -33,13 +32,18 @@
 						if (mysqli_query($conn, $sql)) {
 							//echo "New record created successfully";
 						} else {
-							echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+							//echo "Error: " . $sql . "<br>" . mysqli_error($conn);
 						}
 						
 mysqli_close($conn); // Closing Connection
 echo '<script type="text/javascript"> alert(\'Password updated\'); </script>';
 
-
+$host  = $_SERVER['HTTP_HOST'];
+$uri   = rtrim(dirname($_SERVER['PHP_SELF']), '/\\');
+$extra = 'login.php';
+header("Location: http://$host$uri/$extra");
+exit;
+ob_end_flush();	
 
 }
 ?>
@@ -49,7 +53,7 @@ echo '<script type="text/javascript"> alert(\'Password updated\'); </script>';
 
     <head>
         <meta charset="UTF-8">
-        <title>AdminLTE | Log in</title>
+        <title>Update Password | Paperchasers</title>
         <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
         <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
         <link href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
@@ -107,7 +111,7 @@ if ($result->num_rows >0) {
 
 } else {
 //$error = "Username or Password is invalid";
-echo '<script type="text/javascript"> alert(\'Key is not valid\'); </script>';
+echo '<script> location.replace("login.php"); </script>';
 }
 mysqli_close($conn); // 
 		 }
@@ -121,8 +125,8 @@ mysqli_close($conn); //
                 <div class="body bg-gray">
                     <div class="form-group">
                         <input type="text" name="semail" class="form-control" placeholder="Enter your password"/>
-						<input type="hidden" name="uid" value = <?php echo $tmpuid; ?> class="form-control" placeholder="Enter your password"/>
-						<input type="hidden" name="ukey" value = <?php echo $tmpkey; ?> class="form-control" placeholder="Enter your password"/>
+						<input type="hidden" name="uid" value = <?php echo $tmpuid; ?> class="form-control"/>
+						<input type="hidden" name="ukey" value = <?php echo $tmpkey; ?> class="form-control"/>
                     </div>    
                 </div>
                 <div class="footer" >                                                               

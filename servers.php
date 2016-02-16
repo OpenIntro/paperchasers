@@ -116,8 +116,8 @@ exit;
                                     <table id="servers-table" class="table table-bordered table-hover">
                                         <thead>
                                             <tr>
+                                                <th>Server Name</th>
                                                 <th>Company Name</th>
-                                                <th>Name</th>
                                                 <th>Active Jobs</th>
                                                 <th>Total Jobs</th>
                                                 <th>County</th>
@@ -164,7 +164,7 @@ $tmpactivej = $resultt->num_rows;
 																							<td><?php echo $row["country"];?></td>
 																							<td><?php echo $row["scity"];?></td>
 																							<td><?php echo $row["state"]?></td>
-																							<td><?php echo $row["rating"];?></td>
+																							<td><input id="rating-<?php echo $row["serverid"];?>" class="rating" value="<?php echo $row["rating"];?>" data-min="0" data-max="5" data-step="0.5"></td>
 																						</tr>
 													<?php 
 																						
@@ -223,10 +223,21 @@ $tmpactivej = $resultt->num_rows;
                     "columnDefs": [
                         { "width": "125px", "targets": 7 }
                     ],
-                    "order": [ 7, 'asc' ],
+                    "order": [ 0, 'asc' ],
                     "oLanguage": {
                      "sSearch": "Filter: "
-                   }
+                   },
+                   "bRetrieve": true,
+                    "fnDrawCallback": function() {
+                        $('.rating').rating("refresh", {disabled:true, showClear:false, showCaption: false, size: 'xs'});
+
+                        $("#servers-table tbody tr").on('click', function() {
+                            var tmp = $(this).find('.tmp').val();
+                        
+                            location.href="serverView.php?id="+tmp+""
+                         
+                        });
+                    }
                 });
 
                 $("#servers-table tbody tr").on('click', function() {

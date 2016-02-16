@@ -279,7 +279,7 @@ mysqli_close($conn);
                                             <a class="btn btn-app rush">
                                                 <i class="ion ion-alert-circled"></i> Rush
                                             </a>
-                                            <a class="btn btn-app exp">
+                                            <a class="btn btn-app expedited">
                                                 <i class="ion ion-ios7-star"></i> Expedited
                                             </a>
                                         </div>
@@ -394,16 +394,10 @@ mysqli_close($conn);
                                     <div class="box-body">
                                         <div class="form-group">
                                             <div class="row">
-                                                <div class="col-xs-6">
-                                                    <div class="form-group">
+                                                <div class="col-xs-12 col-md-4 col-md-offset-4">
+                                                    <div class="form-group" style="text-align: center;">
                                                         <label for="firmName">Cause Number</label>
-                                                        <input name="cnumber" type="text" class="form-control" id="firmName" placeholder="Cause Number" required >
-                                                    </div>
-                                                </div>
-                                                <div class="col-xs-6">
-                                                    <div class="form-group">
-                                                        <label for="clientName">Court</label>
-                                                        <input name="court" type="text" class="form-control" id="firmName" placeholder="Court" required >
+                                                        <input name="cnumber" type="text" class="form-control" id="cnumber" placeholder="Cause Number" tabindex="9" required style="text-align: center;">
                                                     </div>
                                                 </div>
                                             </div>
@@ -411,14 +405,14 @@ mysqli_close($conn);
                                                 <div class="col-xs-6">
                                                     <div class="form-group">
                                                         <label for="firmName">Plaintiff</label>
-                                                        <input name="plaintiff" type="text" class="form-control" id="firmName" placeholder="Plaintiff" >
-                                                        <span class="between"><strong>vs.</strong></span>
+                                                        <input name="plaintiff" type="text" class="form-control" id="plaintiff" tabindex="10" placeholder="Plaintiff" >
+                                                        <span class="between"></span>
                                                     </div>
                                                 </div>
                                                 <div class="col-xs-6">
                                                     <div class="form-group">
-                                                        <label for="clientName">Defendant</label>
-                                                        <input name="defendant" type="text" class="form-control" id="firmName" placeholder="Defendant" >
+                                                        <label for="clientName">Court Info</label>
+                                                        <input name="court" type="text" class="form-control" id="court" placeholder="Court Info" tabindex="12" required >
                                                     </div>
                                                 </div>
                                             </div>
@@ -426,68 +420,14 @@ mysqli_close($conn);
                                             <div class="row">
                                                 <div class="col-xs-6">
                                                     <div class="form-group">
-                                                        <label for="firmName">City</label>
-                                                        <input name="city" type="text" class="form-control" id="firmName" placeholder="City" >
+                                                        <label for="clientName">Defendant</label>
+                                                        <input name="defendant" type="text" class="form-control" id="defendant" tabindex="11" placeholder="Defendant" >
                                                     </div>
                                                 </div>
                                                 <div class="col-xs-6">
                                                     <div class="form-group">
-                                                        <label for="clientName">State</label>
-                                                        <select name="state" class="form-control" >
-                                                            <option value="">- Select -</option>
-                                                            <option value="AL">Alabama</option>
-                                                            <option value="AK">Alaska</option>
-                                                            <option value="AZ">Arizona</option>
-                                                            <option value="AR">Arkansas</option>
-                                                            <option value="CA">California</option>
-                                                            <option value="CO">Colorado</option>
-                                                            <option value="CT">Connecticut</option>
-                                                            <option value="DE">Delaware</option>
-                                                            <option value="DC">District Of Columbia</option>
-                                                            <option value="FL">Florida</option>
-                                                            <option value="GA">Georgia</option>
-                                                            <option value="HI">Hawaii</option>
-                                                            <option value="ID">Idaho</option>
-                                                            <option value="IL">Illinois</option>
-                                                            <option value="IN">Indiana</option>
-                                                            <option value="IA">Iowa</option>
-                                                            <option value="KS">Kansas</option>
-                                                            <option value="KY">Kentucky</option>
-                                                            <option value="LA">Louisiana</option>
-                                                            <option value="ME">Maine</option>
-                                                            <option value="MD">Maryland</option>
-                                                            <option value="MA">Massachusetts</option>
-                                                            <option value="MI">Michigan</option>
-                                                            <option value="MN">Minnesota</option>
-                                                            <option value="MS">Mississippi</option>
-                                                            <option value="MO">Missouri</option>
-                                                            <option value="MT">Montana</option>
-                                                            <option value="NE">Nebraska</option>
-                                                            <option value="NV">Nevada</option>
-                                                            <option value="NH">New Hampshire</option>
-                                                            <option value="NJ">New Jersey</option>
-                                                            <option value="NM">New Mexico</option>
-                                                            <option value="NY">New York</option>
-                                                            <option value="NC">North Carolina</option>
-                                                            <option value="ND">North Dakota</option>
-                                                            <option value="OH">Ohio</option>
-                                                            <option value="OK">Oklahoma</option>
-                                                            <option value="OR">Oregon</option>
-                                                            <option value="PA">Pennsylvania</option>
-                                                            <option value="RI">Rhode Island</option>
-                                                            <option value="SC">South Carolina</option>
-                                                            <option value="SD">South Dakota</option>
-                                                            <option value="TN">Tennessee</option>
-                                                            <option value="TX">Texas</option>
-                                                            <option value="UT">Utah</option>
-                                                            <option value="VT">Vermont</option>
-                                                            <option value="VA">Virginia</option>
-                                                            <option value="WA">Washington</option>
-                                                            <option value="WV">West Virginia</option>
-                                                            <option value="WI">Wisconsin</option>
-                                                            <option value="WY">Wyoming</option>
-                                                        </select>               
-        
+                                                        <label for="firmName">County/State</label>
+                                                        <input name="city" type="text" class="form-control" id="city" tabindex="13" placeholder="County/State" >
                                                     </div>
                                                 </div>
                                             </div>
@@ -611,23 +551,6 @@ mysqli_close($conn);
                                                 </div>
                                             </div>
                                         </div>
-
-                                        <div class="row">
-                                            <div class="col-sm-6">
-                                                <div class="form-group">
-                                                    <label for="exampleInputFile">Upload documents</label>
-                                                    <input name="fileToUpload" type="file" id="fileToUpload">
-                                                    <p class="help-block"></p>
-													
-                                                </div>
-                                            </div>
-                                            <div class="col-sm-6">
-                                                <div class="form-group">
-                                                    <label>Attached documents</label>
-                                                    <textarea name="adocument" type="varchar" class="form-control" rows="3" placeholder="SUBPOENA DUCES TECUM" disabled=""></textarea>
-                                                </div>
-                                            </div>
-                                        </div>
                                     </div><!-- /.box-body -->
                                 
                                 <div class="box-footer">
@@ -687,7 +610,7 @@ mysqli_close($conn);
                     $("#job-type .btn").removeClass('active');
                     $(this).addClass('active');
                     //alert($( this ).text());
-                    $('#jobtype').attr('value',$( this ).text());
+					$('#jobtype').attr('value',$( this ).text());
                     // Action Date
                     var monthNames = [ "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December" ];
                     var d = new Date();
@@ -697,7 +620,7 @@ mysqli_close($conn);
                     curr_month = monthNames[d.getMonth()];
                     var curr_year = d.getFullYear();
                     var fromDate = curr_month +" "+ (curr_date) + ", " + curr_year;
-                    //var fromDate = m ([ .\t-])* dd [,.stndrh\t ]+ y;
+					//var fromDate = m ([ .\t-])* dd [,.stndrh\t ]+ y;
 
                     if ($(this).hasClass('routine')) {
                         d2 = d.setDate(d.getDate() + 3);
@@ -707,33 +630,34 @@ mysqli_close($conn);
                         var to_month = monthNames[d.getMonth()];
                         var to_year = d.getFullYear();
                         var toDate = to_month +" "+ (to_date) + ", " + to_year;
+						
+						 $('#action-date').text(toDate);
+						 
+						var to_monthh = d.getMonth();
+						to_monthh++;
+						//var toDatee = to_monthh +"/"+ (to_date) + "/" + to_year;
+						var toDatee = to_year +"-"+ to_monthh + "-" + (to_date);
+    					$('#actiondate').attr('value',toDatee);
+
+                        // Due Date
+                        d = new Date();
+                        d3 = d.setDate(d.getDate() + 10);
+                        var due_date = d.getDate();
+                        var due_month = d.getMonth();
+                        due_month++;
+                        var due_month = monthNames[d.getMonth()];
+                        var due_year = d.getFullYear();
+                        var dueDate = due_month +" "+ (due_date) + ", " + due_year;
+                        $('#due-date').text(dueDate);
                         
-                         $('#action-date').text(toDate);
-                         
-                        var to_monthh = d.getMonth();
-                        to_monthh++;
-                        //var toDatee = to_monthh +"/"+ (to_date) + "/" + to_year;
-                        var toDatee = to_year +"-"+ to_monthh + "-" + (to_date);
-                        $('#actiondate').attr('value',toDatee);
-                        
+                          var due_monthh = d.getMonth();
+                            due_monthh++;
+                        //var dueDate = due_monthh +"/"+ (due_date) + "/" + due_year;
+                        var dueDatee = due_year +"-"+ due_monthh + "-" + (due_date);
+                        $('#duedate').attr('value',dueDatee);
+						
                     }
                     else if ($(this).hasClass('rush')) {
-                        d2 = d.setDate(d.getDate() + 2);
-                        var to_date = d.getDate();
-                        var to_month = d.getMonth();
-                        to_month++;
-                        var to_month = monthNames[d.getMonth()];
-                        var to_year = d.getFullYear();
-                        var toDate = to_month +" "+ (to_date) + ", " + to_year;
-                        $('#action-date').text(toDate);
-                        
-                        var to_monthh = d.getMonth();
-                        to_monthh++;
-                        //var toDatee = to_monthh +"/"+ (to_date) + "/" + to_year;
-                        var toDatee = to_year +"-"+ to_monthh + "-" + (to_date);
-                        $('#actiondate').attr('value',toDatee);
-                    }
-                    else if ($(this).hasClass('exp')) {
                         d2 = d.setDate(d.getDate() + 1);
                         var to_date = d.getDate();
                         var to_month = d.getMonth();
@@ -742,29 +666,63 @@ mysqli_close($conn);
                         var to_year = d.getFullYear();
                         var toDate = to_month +" "+ (to_date) + ", " + to_year;
                         $('#action-date').text(toDate);
-                        
-                        var to_monthh = d.getMonth();
-                        to_monthh++;
-                        //var toDatee = to_monthh +"/"+ (to_date) + "/" + to_year;
-                        var toDatee = to_year +"-"+ to_monthh + "-" + (to_date);
-                        $('#actiondate').attr('value',toDatee);
-                    }
+						
+						var to_monthh = d.getMonth();
+						to_monthh++;
+						//var toDatee = to_monthh +"/"+ (to_date) + "/" + to_year;
+						var toDatee = to_year +"-"+ to_monthh + "-" + (to_date);
+    					$('#actiondate').attr('value',toDatee);
 
-                    var d = new Date();
-                    d3 = d.setDate(d.getDate() + 7);
-                    var due_date = d.getDate();
-                    var due_month = d.getMonth();
-                    due_month++;
-                    var due_month = monthNames[d.getMonth()];
-                    var due_year = d.getFullYear();
-                    var dueDate = due_month +" "+ (due_date) + ", " + due_year;
-                    $('#due-date').text(dueDate);
-                    
-                      var due_monthh = d.getMonth();
-                        due_monthh++;
-                    //var dueDate = due_monthh +"/"+ (due_date) + "/" + due_year;
-                    var dueDatee = due_year +"-"+ due_monthh + "-" + (due_date);
-                    $('#duedate').attr('value',dueDatee);
+                        // Due Date
+                        d = new Date();
+                        d3 = d.setDate(d.getDate() + 7);
+                        var due_date = d.getDate();
+                        var due_month = d.getMonth();
+                        due_month++;
+                        var due_month = monthNames[d.getMonth()];
+                        var due_year = d.getFullYear();
+                        var dueDate = due_month +" "+ (due_date) + ", " + due_year;
+                        $('#due-date').text(dueDate);
+                        
+                          var due_monthh = d.getMonth();
+                            due_monthh++;
+                        //var dueDate = due_monthh +"/"+ (due_date) + "/" + due_year;
+                        var dueDatee = due_year +"-"+ due_monthh + "-" + (due_date);
+                        $('#duedate').attr('value',dueDatee);
+                    }
+                    else if ($(this).hasClass('expedited')) {
+                        d2 = d.setDate(d.getDate() + 1);
+                        var to_date = d.getDate();
+                        var to_month = d.getMonth();
+                        to_month++;
+                        var to_month = monthNames[d.getMonth()];
+                        var to_year = d.getFullYear();
+                        var toDate = to_month +" "+ (to_date) + ", " + to_year;
+                        $('#action-date').text(toDate);
+						
+						var to_monthh = d.getMonth();
+						to_monthh++;
+						//var toDatee = to_monthh +"/"+ (to_date) + "/" + to_year;
+						var toDatee = to_year +"-"+ to_monthh + "-" + (to_date);
+    					$('#actiondate').attr('value',toDatee);
+
+                        // Due Date
+                        d = new Date();
+                        d3 = d.setDate(d.getDate() + 4);
+                        var due_date = d.getDate();
+                        var due_month = d.getMonth();
+                        due_month++;
+                        var due_month = monthNames[d.getMonth()];
+                        var due_year = d.getFullYear();
+                        var dueDate = due_month +" "+ (due_date) + ", " + due_year;
+                        $('#due-date').text(dueDate);
+                        
+                          var due_monthh = d.getMonth();
+                            due_monthh++;
+                        //var dueDate = due_monthh +"/"+ (due_date) + "/" + due_year;
+                        var dueDatee = due_year +"-"+ due_monthh + "-" + (due_date);
+                        $('#duedate').attr('value',dueDatee);
+                    }
                 });
 
                 $("[data-mask]").inputmask();

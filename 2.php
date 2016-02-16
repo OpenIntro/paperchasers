@@ -11,8 +11,8 @@ if (mysqli_connect_errno()) {
   echo "Failed to connect to MySQL: " . mysqli_connect_error();
 }
 
-$sql="INSERT INTO joblog "."(luserid,lcomment,ltime,ljid)".
-						"VALUES "."(".$_POST['tmpuid'].",'".$_POST['jlname']."',now(),".$_POST['jid'].")"; 
+$sql="INSERT INTO joblog "."(luserid,lcomment,ltime,ljid,chkimg)".
+						"VALUES "."(".$_POST['tmpuid'].",'".$_POST['jlname']."',now(),".$_POST['jid'].",2)"; 
 						
 						if (mysqli_query($conn, $sql)) {
 						//	echo "New record created successfully";
@@ -40,8 +40,8 @@ $result = mysqli_query($conn,"SELECT *  FROM joblog where logid = ".$lastid."");
 		//$mysqltime = date("Y-m-d",$row['ltime']);
 		//$mysqltime = date ("Y-m-d H:i:s",$row['ltime']);
 		$date = new DateTime($row['ltime']);
-        $res = $date->format('Y-m-d');
-		$ress = $date->format('H:i:s');
+        $res = $date->format('m-d-Y');
+		$ress = $date->format('h:i:s A');
 		$row['ltime']=htmlentities(stripslashes($res));
 		$row['stime']=htmlentities(stripslashes($ress));
 		$row['tmpupicc']= $tmpupic;

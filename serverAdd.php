@@ -103,7 +103,7 @@ ob_end_flush();
                         Add Server
                     </h1>
                     <ol class="breadcrumb">
-                        <li><a href="dashboard.php"><i class="fa fa-dashboard"></i> Home</a></li>
+                        <li><a href="dashboard.php?"><i class="fa fa-dashboard"></i> Home</a></li>
                         <li class="active">Add Server</li>
                     </ol>
                 </section>
@@ -130,7 +130,7 @@ ob_end_flush();
                                     </div>
                                     <div class="form-group col-sm-6">
                                         <label for="serverName">Email Address</label>
-                                        <input name="email" type="email" class="form-control" id="server-email" placeholder="Enter Server's Email Address" required>
+                                        <input name="email" type="email" class="form-control" id="server-email" placeholder="Enter Server's Email Address">
                                     </div>
                                     <div class="form-group col-sm-6">
                                         <label for="serverName">Phone Number</label>
@@ -138,7 +138,7 @@ ob_end_flush();
                                             <div class="input-group-addon">
                                                 <i class="fa fa-phone"></i>
                                             </div>
-                                            <input name="pnumber" type="tel" id="server-phone" class="form-control" data-inputmask='"mask": "(999) 999-9999"' data-mask required />
+                                            <input name="pnumber" type="tel" id="server-phone" class="form-control" data-inputmask='"mask": "(999) 999-9999"' data-mask />
                                         </div>
                                     </div>
                                     <div class="form-group col-sm-6">

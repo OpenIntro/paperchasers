@@ -2,14 +2,15 @@
 include "setting.php";
 ob_start();
 include "config.php";
-						// Create connection
+				
+				// Create connection
 						$conn = new mysqli($servername, $username, $password,$dbname);
                         
 						//print_r($_POST);
 						
 						//Check connection
 						if ($conn->connect_error) {
-							die("Connection failed: " . $conn->connect_error);
+							//die("Connection failed: " . $conn->connect_error);
 						}
 						//echo "Connected successfully";
 						
@@ -24,7 +25,7 @@ if(isset($_GET['id']))
 						//echo $trimmed;
 						
 						//update
-$sql="UPDATE jobdetail SET jtype = 'archive' Where jobid=".$tmpid ."";
+$sql="UPDATE jobdetail SET jtype = 'Routine' Where jobid=".$tmpid ."";
 						
 						if (mysqli_query($conn, $sql)) {
 						//	echo "New record created successfully";
@@ -32,7 +33,7 @@ $sql="UPDATE jobdetail SET jtype = 'archive' Where jobid=".$tmpid ."";
 							//echo "Error: " . $sql . "<br>" . mysqli_error($conn);
 						}	
 						
-$upjob = "Job #".$tmpid." has been archived";
+$upjob = "Job #".$tmpid." has been unarchived";
 					
 					$sql="INSERT INTO joblog "."(luserid,lcomment,ltime,ljid)".
 						"VALUES "."(".$_SESSION['login_id'].",'".$upjob."',now(),".$tmpid.")"; 
@@ -46,10 +47,10 @@ $upjob = "Job #".$tmpid." has been archived";
 						
 						mysqli_close($conn);
 						
-						$host  = $_SERVER['HTTP_HOST'];
+$host  = $_SERVER['HTTP_HOST'];
 $uri   = rtrim(dirname($_SERVER['PHP_SELF']), '/\\');
-$extra = 'archive.php';
+$extra = 'dashboard.php';
 header("Location: http://$host$uri/$extra");
 exit;
-ob_end_flush();
+ob_end_flush();	
 ?>
