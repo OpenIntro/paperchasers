@@ -220,6 +220,7 @@ $tmpactivej = $resultt->num_rows;
         <script type="text/javascript">
             $(function() {
                 $("#servers-table").dataTable({
+                    "pageLength": 25,
                     "columnDefs": [
                         { "width": "125px", "targets": 7 }
                     ],

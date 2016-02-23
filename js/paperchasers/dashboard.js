@@ -7,10 +7,19 @@ $(function() {
     "use strict";
 
     $("#dashboard-jobs").dataTable({
+        "pageLength": 25,
         "order": [ 8, 'asc' ],
         "oLanguage": {
          "sSearch": "Filter: "
-       }
+       },
+       "bRetrieve": true,
+        "fnDrawCallback": function() {
+            $("#dashboard-jobs tbody tr").on('click', function() {
+                var tmp = $(this).find('.tmp').val();
+                location.href="jobView.php?id="+tmp+""
+             
+            });
+        }
     });
 
     // If Job Action Date is past due

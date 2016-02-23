@@ -208,15 +208,24 @@ mysqli_close($conn);
         <script type="text/javascript">
             $(function() {
                 $("#archived-jobs tbody tr").on('click', function() {
-                     var tmp = $(this).find('.tmp').val();
+                    var tmp = $(this).find('.tmp').val();
                     location.href="archiveView.php?id="+tmp+""
                 });
 
                 $("#archived-jobs").dataTable({
+                    "pageLength": 25
                     "order": [ 2, 'des' ],
                     "oLanguage": {
                      "sSearch": "Filter: "
-                   }
+                   },
+                   "bRetrieve": true,
+                    "fnDrawCallback": function() {
+
+                        $("#archived-jobs tbody tr").on('click', function() {
+                            var tmp = $(this).find('.tmp').val();
+                            location.href="archiveView.php?id="+tmp+""
+                        });
+                    }
                 });
             });
         </script>

@@ -220,6 +220,7 @@ mysqli_close($conn);
         <script type="text/javascript">
             $(function() {
                 $("#customers-table").dataTable({
+                    "pageLength": 25,
                     "columnDefs": [],
                     "order": [ 0, 'asc' ],
                     "oLanguage": {
