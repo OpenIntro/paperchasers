@@ -140,6 +140,12 @@ include "config.php";
 						      $tmp_count_due = $_POST["duedate"]; 
 						
 						}
+
+						// Update Dates button for manual dates
+						if (isset($_POST['updatedates'])) {
+							$tmp_count = $_POST["actiondate"];
+							$tmp_count_due = $_POST["duedate"];
+						}
 						
 						
 						
@@ -184,7 +190,23 @@ jstate = '".$_POST["state"]."',jtype = '".$trimmed."',adate = '".$tmp_count."',d
 		
    }
    
-
+// Job log for manual dates
+if (isset($_POST['updatedates'])) {
+	if($_POST["actiondate"] != $_POST["tmpactiondate"]) {
+	    $upjob = "Action date been updated ".$_POST["actiondate"]; 
+	}
+	else if($_POST["duedate"] != $_POST["tmpduedate"]) {
+	    $upjob = "Due date been updated to ".$_POST["duedate"]; 
+	}
+	 $sql="INSERT INTO joblog "."(luserid,lcomment,ltime,ljid)".
+	"VALUES "."(".$_POST['tmpuid'].",'".$upjob."',now(),".$_POST['id'].")"; 
+	
+	if (mysqli_query($conn, $sql)) {
+		//echo "New record created successfully";
+	} else {
+		//echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+	}
+}
    
    if($_POST["firm-id"] != $_POST["ltmp-firm-id"])
    {
@@ -268,6 +290,8 @@ ob_end_flush();
         <link href="//code.ionicframework.com/ionicons/1.5.2/css/ionicons.min.css" rel="stylesheet" type="text/css" />
         <!-- DATA TABLES -->
         <link href="css/plugins/datatables/dataTables.bootstrap.css" rel="stylesheet" type="text/css" />
+
+        <link href="css/daterangepicker/daterangepicker-bs3.css" rel="stylesheet" type="text/css"/>
         <!-- Theme style -->
         <link href="css/main.css" rel="stylesheet" type="text/css" />
         <link href="css/custom.css" rel="stylesheet" type="text/css" />
@@ -370,18 +394,15 @@ $row = $result->fetch_assoc();
 												<input type="hidden"  id="id" name = "id" value = <?php echo $row["jobid"]; ?> />
                                         <div class="col-md-6">
                                             Job #: <strong><?php echo $row["jobid"]; ?></strong><br />											 
-                                            Next Action Date: <strong><span id="action-date" >
-											<?php $originalDate = $row["adate"];
-												$newDate = date(" F  d , Y" ,strtotime($originalDate));
-												echo $newDate; ?></span></strong><br />                                            
-											Due Date: <strong><span id="due-date">
-											<?php  $originalDate = $row["ddate"];
-												$newDate = date(" F  d , Y" ,strtotime($originalDate));
-												echo $newDate;  ?></span></strong>
+                                            Next Action Date: <input type="text"  id="actiondate" name = "actiondate" value=<?php echo $row["adate"]; ?> data-inputmask='"mask": "9999-99-99"' data-mask><input type="hidden"  id="tmpactiondate" name = "tmpactiondate" value=<?php echo $row["adate"]; ?>><br />                                            
+											Due Date: <input type="text"  id="duedate" name = "duedate" value=<?php echo $row["ddate"]; ?> data-inputmask='"mask": "9999-99-99"' data-mask />
+											<input type="hidden"  id="tmpduedate" name = "tmpduedate" value=<?php echo $row["ddate"]; ?> />
+
+												<button id="updatedates" name="updatedates" class="btn bg-job btn-flat btn-block text-white btn-hover" style="max-width: 200px; margin-top: 10px">Update Dates</button>
                                         </div>
 										
-											    <input type="hidden"  id="actiondate" name = "actiondate" value=<?php echo $row["adate"]; ?> />
-												<input type="hidden"  id="duedate" name = "duedate" value=<?php echo $row["ddate"]; ?> />
+											    <!-- <input type="text"  id="actiondate" name = "actiondate" value=<?php echo $row["adate"]; ?> />
+												<input type="text"  id="duedate" name = "duedate" value=<?php echo $row["ddate"]; ?> /> -->
 												<input type="hidden"  id="tmpuid" name = "tmpuid" value=<?php echo $_SESSION['login_id']; ?> />
 												
                                           <div class="col-md-5">
@@ -891,6 +912,7 @@ $row = $result->fetch_assoc();
         <script src="js/plugins/input-mask/jquery.inputmask.extensions.js" type="text/javascript"></script>
 
         <!-- daterangepicker -->
+        <script src="js/plugins/datepicker/bootstrap-datepicker.js" type="text/javascript"></script>
         <script src="js/plugins/typeahead/typeahead.bundle.min.js" type="text/javascript"></script>
 
         <!-- Paperchasers App -->
@@ -901,6 +923,12 @@ $row = $result->fetch_assoc();
             $(function() {
 
                 $("[data-mask]").inputmask();
+
+                $('#actiondate, #duedate').datepicker({
+                	format: "yyyy-mm-dd",
+				    autoclose: true,
+				    todayHighlight: true
+				});
 
                 var substringMatcher = function(strs) {
                   return function findMatches(q, cb) {
