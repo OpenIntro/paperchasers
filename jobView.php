@@ -291,7 +291,7 @@ ob_end_flush();
         <!-- DATA TABLES -->
         <link href="css/plugins/datatables/dataTables.bootstrap.css" rel="stylesheet" type="text/css" />
 
-        <link href="css/daterangepicker/daterangepicker-bs3.css" rel="stylesheet" type="text/css"/>
+        <link href="css/plugins/datepicker/bootstrap-datepicker3.standalone.min.css" rel="stylesheet" type="text/css"/>
         <!-- Theme style -->
         <link href="css/main.css" rel="stylesheet" type="text/css" />
         <link href="css/custom.css" rel="stylesheet" type="text/css" />
@@ -723,7 +723,7 @@ $row = $result->fetch_assoc();
                             <!-- New Job - Customer Section -->
                             <div class="box box-server collapsed-box">
                                 <div class="box-header">
-                                    <h3 class="box-title">Server - <em class="text-brand-main"><?php echo $tmpserver; ?></em></h3>
+                                    <h3 class="box-title">Server - <em class="text-brand-main"><?php echo $tmpserversname; ?></em></h3>
 
                                     <div class="box-tools pull-right">
                                         <button class="btn btn-default btn-sm" data-widget="collapse" onclick="return false;" data-toggle="tooltip" title="" data-original-title="Collapse"><i class="fa fa-plus"></i></button>
@@ -912,7 +912,7 @@ $row = $result->fetch_assoc();
         <script src="js/plugins/input-mask/jquery.inputmask.extensions.js" type="text/javascript"></script>
 
         <!-- daterangepicker -->
-        <script src="js/plugins/datepicker/bootstrap-datepicker.js" type="text/javascript"></script>
+        <script src="js/plugins/datepicker/bootstrap-datepicker.min.js" type="text/javascript"></script>
         <script src="js/plugins/typeahead/typeahead.bundle.min.js" type="text/javascript"></script>
 
         <!-- Paperchasers App -->
