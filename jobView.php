@@ -138,6 +138,7 @@ include "config.php";
 						 // $tmp_count_due = date('Y-m-d', strtotime($_POST["actiondate"]. ' + 7 days'));
 						 
 						      $tmp_count_due = $_POST["duedate"]; 
+						      $tmp_count_rec = $_POST["recdate"]; 
 						
 						}
 
@@ -145,7 +146,27 @@ include "config.php";
 						if (isset($_POST['updatedates'])) {
 							$tmp_count = $_POST["actiondate"];
 							$tmp_count_due = $_POST["duedate"];
+							$tmp_count_rec = $_POST["recdate"];
 						}
+
+						if (isset($_POST['SaveInfo'])) {
+
+							$tmp_count = $_POST["actiondate"];
+							$tmp_count_due = $_POST["duedate"];
+							$tmp_count_rec = $_POST["recdate"];
+   
+						     $upjob = "Case Info has been updated";
+							
+						   $sql="INSERT INTO joblog "."(luserid,lcomment,ltime,ljid)".
+								"VALUES "."(".$_POST['tmpuid'].",'".$upjob."',now(),".$_POST['id'].")"; 
+								
+								if (mysqli_query($conn, $sql)) {
+									//echo "New record created successfully";
+								} else {
+									//echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+								}
+												
+						   }
 						
 						
 						
@@ -154,7 +175,7 @@ $sql="UPDATE jobdetail SET jcid = '".$_POST["firm-id"]."',jsid = '".$_POST["serv
 wname = '".$_POST["wname"]."',address1 = '".$_POST["address1"]."',attempt1 = '".$_POST["attempt1"]."',address2 = '".$_POST["address2"]."',
 attempt2 = '".$_POST["attempt2"]."',note = '".$_POST["note"]."' ,udocument = '".$fname."',adocument = '".$trimmed."',plaintiff = '".$_POST["plaintiff"]."',
 defendant = '".$_POST["defendant"]."',cnumber = '".$_POST["cnumber"]."',court = '".$_POST["court"]."',jcity = '".$_POST["city"]."',
-jstate = '".$_POST["state"]."',jtype = '".$trimmed."',adate = '".$tmp_count."',ddate = '".$tmp_count_due."' Where jobid=".$_POST["id"]."";
+jstate = '".$_POST["state"]."',jtype = '".$trimmed."',rdate = '".$tmp_count_rec."',adate = '".$tmp_count."',ddate = '".$tmp_count_due."' Where jobid=".$_POST["id"]."";
 						
 						if (mysqli_query($conn, $sql)) {
 							echo "New record created successfully";
@@ -198,6 +219,9 @@ if (isset($_POST['updatedates'])) {
 	else if($_POST["duedate"] != $_POST["tmpduedate"]) {
 	    $upjob = "Due date been updated to ".$_POST["duedate"]; 
 	}
+	else if($_POST["recdate"] != $_POST["tmprecdate"]) {
+	    $upjob = "Received date been updated to ".$_POST["recdate"]; 
+	}
 	 $sql="INSERT INTO joblog "."(luserid,lcomment,ltime,ljid)".
 	"VALUES "."(".$_POST['tmpuid'].",'".$upjob."',now(),".$_POST['id'].")"; 
 	
@@ -239,21 +263,6 @@ if (isset($_POST['updatedates'])) {
 						}
 						
    }
-   
-   if (isset($_POST['SaveInfo'])) {
-   
-     $upjob = "Case Info has been updated";
-	
-   $sql="INSERT INTO joblog "."(luserid,lcomment,ltime,ljid)".
-						"VALUES "."(".$_POST['tmpuid'].",'".$upjob."',now(),".$_POST['id'].")"; 
-						
-						if (mysqli_query($conn, $sql)) {
-							//echo "New record created successfully";
-						} else {
-							//echo "Error: " . $sql . "<br>" . mysqli_error($conn);
-						}
-						
-   }
 	
 						mysqli_close($conn);
 						
@@ -279,6 +288,7 @@ ob_end_flush();
 ┬ ┬┌─┐┌─┐┌─┐┬─┐┌─┐
 ╠═╝├─┤├─┘├┤ ├┬┘║  ├─┤├─┤└─┐├┤ ├┬┘└─┐
 ╩  ┴ ┴┴  └─┘┴└─╚═╝┴ ┴┴ ┴└─┘└─┘┴└─└─┘
+test
 -->
     <head>
         <meta charset="UTF-8">
@@ -390,15 +400,45 @@ $row = $result->fetch_assoc();
 												
                                             </a>
                                         </div>
-										<input type="hidden"  id="jobtype" name = "jobtype" value = <?php echo $row["jtype"]; ?> />
-												<input type="hidden"  id="id" name = "id" value = <?php echo $row["jobid"]; ?> />
-                                        <div class="col-md-6">
-                                            Job #: <strong><?php echo $row["jobid"]; ?></strong><br />											 
-                                            Next Action Date: <input type="text"  id="actiondate" name = "actiondate" value=<?php echo $row["adate"]; ?> data-inputmask='"mask": "9999-99-99"' data-mask><input type="hidden"  id="tmpactiondate" name = "tmpactiondate" value=<?php echo $row["adate"]; ?>><br />                                            
-											Due Date: <input type="text"  id="duedate" name = "duedate" value=<?php echo $row["ddate"]; ?> data-inputmask='"mask": "9999-99-99"' data-mask />
-											<input type="hidden"  id="tmpduedate" name = "tmpduedate" value=<?php echo $row["ddate"]; ?> />
 
-												<button id="updatedates" name="updatedates" class="btn bg-job btn-flat btn-block text-white btn-hover" style="max-width: 200px; margin-top: 10px">Update Dates</button>
+										<input type="hidden"  id="jobtype" name = "jobtype" value = <?php echo $row["jtype"]; ?> />
+										<input type="hidden"  id="id" name = "id" value = <?php echo $row["jobid"]; ?> />
+
+                                        <div class="col-md-6">
+                                            <div class="row">
+												<div>
+		                                            <span class="date-label">Received Date:</span>
+		                                            <span id="rec-date-text" class="date-text"><?php echo $row["rdate"]; ?></span>
+		                                            <span id="rec-date-field" class="date-field">
+		                                            	<input type="text"  id="recdate" name="recdate" value=<?php echo $row["rdate"]; ?> data-inputmask='"mask": "9999-99-99"' data-mask>
+		                                            	<input type="hidden"  id="tmprecdate" name = "tmprecdate" value=<?php echo $row["rdate"]; ?>>
+		                                            </span>
+		                                            <span class="date-edit"><i class="fa fa-edit"></i></span>
+		                                            
+	                                            </div>
+	                                            <div>
+		                                            <span class="date-label">Action Date:</span>
+		                                            <span id="action-date-text" class="date-text"><?php echo $row["adate"]; ?></span>
+		                                            <span id="action-date-field" class="date-field">
+		                                            	<input type="text"  id="actiondate" name = "actiondate" value=<?php echo $row["adate"]; ?> data-inputmask='"mask": "9999-99-99"' data-mask>
+	                                            		<input type="hidden"  id="tmpactiondate" name = "tmpactiondate" value=<?php echo $row["adate"]; ?>>
+		                                            </span>
+		                                            <span class="date-edit"><i class="fa fa-edit"></i></span>
+		                                            
+	                                            </div>
+	                                            <div>
+		                                            <span class="date-label">Due Date:</span>
+		                                            <span id="due-date-text" class="date-text"><?php echo $row["ddate"]; ?></span>
+		                                            <span id="due-date-field" class="date-field">
+		                                            	<input type="text"  id="duedate" name="duedate" value=<?php echo $row["ddate"]; ?> data-inputmask='"mask": "9999-99-99"' data-mask />
+														<input type="hidden"  id="tmpduedate" name = "tmpduedate" value=<?php echo $row["ddate"]; ?> />
+		                                            </span>
+		                                            <span class="date-edit"><i class="fa fa-edit"></i></span>
+		                                            
+	                                            </div>
+											</div>
+
+											<button id="updatedates" name="updatedates" class="btn bg-job btn-flat btn-block text-white btn-hover" style="max-width: 200px; margin-top: 10px">Update Dates</button>
                                         </div>
 										
 											    <!-- <input type="text"  id="actiondate" name = "actiondate" value=<?php echo $row["adate"]; ?> />
@@ -573,7 +613,7 @@ $row = $result->fetch_assoc();
 											  <div class="col-sm-12">
                                                 <div class="form-group">
                                                     <label for="firmName">Notes (for office use only)</label>
-                                                    <textarea name="note" class="form-control"> <?php echo $row["note"]; ?></textarea>
+                                                    <textarea name="note" class="form-control"><?php echo htmlspecialchars($row['note']);?></textarea>
                                                 </div>
                                             </div>
                                         </div>
@@ -924,7 +964,7 @@ $row = $result->fetch_assoc();
 
                 $("[data-mask]").inputmask();
 
-                $('#actiondate, #duedate').datepicker({
+                $('#actiondate, #duedate, #recdate').datepicker({
                 	format: "yyyy-mm-dd",
 				    autoclose: true,
 				    todayHighlight: true
@@ -1007,6 +1047,14 @@ $row = $result->fetch_assoc();
 	                        }
 	                    });
 					}
+                });
+
+                $('.date-edit').on('click', function() {
+                	$(this).prevAll('.date-text').hide();
+                	$(this).prevAll('.date-field').show();
+                	$(this).hide();
+                	$(this).closest('.date-save').show();
+                	$('#updatedates').show();
                 });
 
             });

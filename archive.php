@@ -213,7 +213,7 @@ mysqli_close($conn);
                 });
 
                 $("#archived-jobs").dataTable({
-                    "pageLength": 25
+                    "pageLength": 25,
                     "order": [ 2, 'des' ],
                     "oLanguage": {
                      "sSearch": "Filter: "

@@ -335,12 +335,12 @@ mysqli_close($conn);
                                                 <div class="input-group-addon">
                                                     <i class="fa fa-phone"></i>
                                                 </div>
-                                                <input name="firm-phone" type="tel" class="form-control" id="firm-phone" data-inputmask='"mask": "(999) 999-9999"' data-mask required />
+                                                <input name="firm-phone" type="tel" class="form-control" id="firm-phone" data-inputmask='"mask": "(999) 999-9999"' data-mask />
                                             </div>
                                         </div>
                                         <div class="form-group">
                                             <label for="firmEmail">Client Email</label>
-                                            <input name="firm-email" type="email" class="form-control" id="firm-email" placeholder="Enter Email" required>
+                                            <input name="firm-email" type="email" class="form-control" id="firm-email" placeholder="Enter Email">
                                         </div>
                                     </div><!-- /.box-body -->
                               
@@ -370,12 +370,12 @@ mysqli_close($conn);
                                                 <div class="input-group-addon">
                                                     <i class="fa fa-phone"></i>
                                                 </div>
-                                                <input name="server-phone" type="tel"  id="server-phone" class="form-control" data-inputmask='"mask": "(999) 999-9999"' data-mask  required />
+                                                <input name="server-phone" type="tel"  id="server-phone" class="form-control" data-inputmask='"mask": "(999) 999-9999"' data-mask />
                                             </div>
                                         </div>
                                         <div class="form-group">
                                             <label for="firmEmail">Email Address</label>
-                                            <input name="server-email" type="email" class="form-control" id="server-email" placeholder="Enter Server Email" required >
+                                            <input name="server-email" type="email" class="form-control" id="server-email" placeholder="Enter Server Email" >
                                         </div>
                                     </div><!-- /.box-body -->
                               

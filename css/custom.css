@@ -40,3 +40,11 @@ span.between {
     right: -23px;
     top: 31px;
 }
+
+/* Job View */
+.date-field, .date-save, #updatedates {display: none;}
+.date-edit, .date-save {cursor: pointer}
+.date-label {font-weight: bold; width: 100px; text-align: right; display: inline-block;}
+.date-edit {margin-left: 15px;}
+.date-edit:hover {color: green;}
+.date-field input {    border: none; border-bottom: 1px solid #999; padding: 0;}
