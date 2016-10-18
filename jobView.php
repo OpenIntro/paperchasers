@@ -172,8 +172,7 @@ include "config.php";
 						
 						//update
 $sql="UPDATE jobdetail SET jcid = '".$_POST["firm-id"]."',jsid = '".$_POST["server-id"]."',cdisposition =  '".$_POST["optionsRadios"]."' ,
-wname = '".$_POST["wname"]."',address1 = '".$_POST["address1"]."',attempt1 = '".$_POST["attempt1"]."',address2 = '".$_POST["address2"]."',
-attempt2 = '".$_POST["attempt2"]."',note = '".$_POST["note"]."' ,udocument = '".$fname."',adocument = '".$trimmed."',plaintiff = '".$_POST["plaintiff"]."',
+wname = '".$_POST["wname"]."',address1 = '".$_POST["address1"]."',city1 = '".$_POST["city1"]."',state1 = '".$_POST["state1"]."',attempt1 = '".$_POST["attempt1"]."',address2 = '".$_POST["address2"]."',city2 = '".$_POST["city2"]."',state2 = '".$_POST["state2"]."',attempt2 = '".$_POST["attempt2"]."',address3 = '".$_POST["address3"]."',city3 = '".$_POST["city3"]."',state3 = '".$_POST["state3"]."',attempt3 = '".$_POST["attempt3"]."',address4 = '".$_POST["address4"]."',city4 = '".$_POST["city4"]."',state4 = '".$_POST["state4"]."',attempt4 = '".$_POST["attempt4"]."',address5 = '".$_POST["address5"]."',city5 = '".$_POST["city5"]."',state5 = '".$_POST["state5"]."',attempt5 = '".$_POST["attempt5"]."',note = '".$_POST["note"]."' ,udocument = '".$fname."',adocument = '".$trimmed."',plaintiff = '".$_POST["plaintiff"]."',
 defendant = '".$_POST["defendant"]."',cnumber = '".$_POST["cnumber"]."',court = '".$_POST["court"]."',jcity = '".$_POST["city"]."',
 jstate = '".$_POST["state"]."',jtype = '".$trimmed."',rdate = '".$tmp_count_rec."',adate = '".$tmp_count."',ddate = '".$tmp_count_due."' Where jobid=".$_POST["id"]."";
 						
@@ -557,19 +556,19 @@ $row = $result->fetch_assoc();
 		                                                            <div class="col-sm-3">
 		                                                                <div class="form-group">
 		                                                                    <label for="city">City</label>
-		                                                                    <input name="city1" type="text" class="form-control" id="city1" placeholder="City" value="">
+		                                                                    <input name="city1" type="text" class="form-control" id="city1" placeholder="City" value="<?php echo $row["city1"]; ?>">
 		                                                                </div>
 		                                                            </div>
 		                                                            <div class="col-sm-3">
 		                                                                <div class="form-group">
 		                                                                    <label for="firmName">State/Zip</label>
-		                                                                    <input name="state1" type="text" class="form-control" id="state1" placeholder="State/Zip" value="">
+		                                                                    <input name="state1" type="text" class="form-control" id="state1" placeholder="State/Zip" value="<?php echo $row["state1"]; ?>">
 		                                                                </div>
 		                                                            </div>
 		                                                            <div class="col-sm-12">
 		                                                                <div class="form-group">
 		                                                                    <label for="firmName">Attempt Notes</label>
-		                                                                    <textarea name="attempt1" class="form-control"> <?php echo $row["attempt1"]; ?></textarea>
+		                                                                    <textarea name="attempt1" id="attempt1" class="form-control"><?php echo $row["attempt1"]; ?></textarea>
 		                                                                </div>
 		                                                            </div>
 		                                                        </div>
@@ -599,19 +598,19 @@ $row = $result->fetch_assoc();
 		                                                            <div class="col-sm-3">
 		                                                                <div class="form-group">
 		                                                                    <label for="city">City</label>
-		                                                                    <input name="city2" type="text" class="form-control" id="city2" placeholder="City" value="">
+		                                                                    <input name="city2" type="text" class="form-control" id="city2" placeholder="City" value="<?php echo $row["city2"]; ?>">
 		                                                                </div>
 		                                                            </div>
 		                                                            <div class="col-sm-3">
 		                                                                <div class="form-group">
 		                                                                    <label for="firmName">State/Zip</label>
-		                                                                    <input name="state2" type="text" class="form-control" id="state2" placeholder="State/Zip" value="">
+		                                                                    <input name="state2" type="text" class="form-control" id="state2" placeholder="State/Zip" value="<?php echo $row["state2"]; ?>">
 		                                                                </div>
 		                                                            </div>
 		                                                            <div class="col-sm-12">
 		                                                                <div class="form-group">
 		                                                                    <label for="firmName">Attempt Notes</label>
-		                                                                    <textarea name="attempt2" class="form-control"> <?php echo $row["attempt2"]; ?></textarea>
+		                                                                    <textarea name="attempt2" id="attempt2" class="form-control"><?php echo $row["attempt2"]; ?></textarea>
 		                                                                </div>
 		                                                            </div>
 		                                                        </div>
@@ -641,19 +640,19 @@ $row = $result->fetch_assoc();
 		                                                            <div class="col-sm-3">
 		                                                                <div class="form-group">
 		                                                                    <label for="city">City</label>
-		                                                                    <input name="city3" type="text" class="form-control" id="city3" placeholder="City" value="">
+		                                                                    <input name="city3" type="text" class="form-control" id="city3" placeholder="City" value="<?php echo $row["city3"]; ?>">
 		                                                                </div>
 		                                                            </div>
 		                                                            <div class="col-sm-3">
 		                                                                <div class="form-group">
 		                                                                    <label for="firmName">State/Zip</label>
-		                                                                    <input name="state3" type="text" class="form-control" id="state23" placeholder="State/Zip" value="">
+		                                                                    <input name="state3" type="text" class="form-control" id="state23" placeholder="State/Zip" value="<?php echo $row["state3"]; ?>">
 		                                                                </div>
 		                                                            </div>
 		                                                            <div class="col-sm-12">
 		                                                                <div class="form-group">
 		                                                                    <label for="firmName">Attempt Notes</label>
-		                                                                    <textarea name="attempt3" class="form-control"> <?php echo $row["attempt3"]; ?></textarea>
+		                                                                    <textarea name="attempt3" id="attempt3" class="form-control"><?php echo $row["attempt3"]; ?></textarea>
 		                                                                </div>
 		                                                            </div>
 		                                                        </div>
@@ -683,19 +682,19 @@ $row = $result->fetch_assoc();
 		                                                            <div class="col-sm-3">
 		                                                                <div class="form-group">
 		                                                                    <label for="city">City</label>
-		                                                                    <input name="city4" type="text" class="form-control" id="city4" placeholder="City" value="">
+		                                                                    <input name="city4" type="text" class="form-control" id="city4" placeholder="City" value="<?php echo $row["city4"]; ?>">
 		                                                                </div>
 		                                                            </div>
 		                                                            <div class="col-sm-3">
 		                                                                <div class="form-group">
 		                                                                    <label for="firmName">State/Zip</label>
-		                                                                    <input name="state4" type="text" class="form-control" id="state4" placeholder="State/Zip" value="">
+		                                                                    <input name="state4" type="text" class="form-control" id="state4" placeholder="State/Zip" value="<?php echo $row["state4"]; ?>">
 		                                                                </div>
 		                                                            </div>
 		                                                            <div class="col-sm-12">
 		                                                                <div class="form-group">
 		                                                                    <label for="firmName">Attempt Notes</label>
-		                                                                    <textarea name="attempt4" class="form-control"> <?php echo $row["attempt4"]; ?></textarea>
+		                                                                    <textarea name="attempt4" id="attempt4" class="form-control"><?php echo $row["attempt4"]; ?></textarea>
 		                                                                </div>
 		                                                            </div>
 		                                                        </div>
@@ -725,19 +724,19 @@ $row = $result->fetch_assoc();
 		                                                            <div class="col-sm-3">
 		                                                                <div class="form-group">
 		                                                                    <label for="city">City</label>
-		                                                                    <input name="city5" type="text" class="form-control" id="city5" placeholder="City" value="">
+		                                                                    <input name="city5" type="text" class="form-control" id="city5" placeholder="City" value="<?php echo $row["city5"]; ?>">
 		                                                                </div>
 		                                                            </div>
 		                                                            <div class="col-sm-3">
 		                                                                <div class="form-group">
 		                                                                    <label for="firmName">State/Zip</label>
-		                                                                    <input name="state25" type="text" class="form-control" id="state5" placeholder="State/Zip" value="">
+		                                                                    <input name="state5" type="text" class="form-control" id="state5" placeholder="State/Zip" value="<?php echo $row["state1"]; ?>">
 		                                                                </div>
 		                                                            </div>
 		                                                            <div class="col-sm-12">
 		                                                                <div class="form-group">
 		                                                                    <label for="firmName">Attempt Notes</label>
-		                                                                    <textarea name="attempt5" class="form-control"> <?php echo $row["attempt5"]; ?></textarea>
+		                                                                    <textarea name="attempt5" id="attempt5" class="form-control"><?php echo $row["attempt5"]; ?></textarea>
 		                                                                </div>
 		                                                            </div>
 		                                                        </div>
@@ -1189,6 +1188,28 @@ $row = $result->fetch_assoc();
 						$(this).hide();
 					}
 				});
+
+				if ($("#address5").val() != '' || $("#attempt5").val() != '') {
+					$('#attempt-box5,#attempt-box4,#attempt-box3,#attempt-box2').show();
+					$('#attempt-box4,#attempt-box3,#attempt-box2,#attempt-box1').addClass('collapsed-box');
+					$('#attempt-box4 .box-body,#attempt-box3 .box-body,#attempt-box2 .box-body,#attempt-box1 .box-body').hide();
+					$('#attempt-box4 .btn-sm i,#attempt-box3 .btn-sm i,#attempt-box2 .btn-sm i,#attempt-box1 .btn-sm i').addClass('fa-plus').removeClass('fa-minus');
+				} else if ($("#address4").val() != '' || $("#attempt4").val() != '') {
+					$('#attempt-box4,#attempt-box3,#attempt-box2').show();
+					$('#attempt-box3,#attempt-box2,#attempt-box1').addClass('collapsed-box');
+					$('#attempt-box3 .box-body,#attempt-box2 .box-body,#attempt-box1 .box-body').hide();
+					$('#attempt-box3 .btn-sm i,#attempt-box2 .btn-sm i,#attempt-box1 .btn-sm i').addClass('fa-plus').removeClass('fa-minus');
+				} else if ($("#address3").val() != '' || $("#attempt3").val() != '') {
+					$('#attempt-box3,#attempt-box2').show();
+					$('#attempt-box2,#attempt-box1').addClass('collapsed-box');
+					$('#attempt-box2 .box-body,#attempt-box1 .box-body').hide();
+					$('#attempt-box2 .btn-sm i,#attempt-box1 .btn-sm i').addClass('fa-plus').removeClass('fa-minus');
+				} else if ($("#address2").val() != '' || $("#attempt2").val() != '') {
+					$('#attempt-box2').show();
+					$('#attempt-box1').addClass('collapsed-box');
+					$('#attempt-box1 .box-body').hide();
+					$('#attempt-box1 .btn-sm i').addClass('fa-plus').removeClass('fa-minus');
+				} 
           
                 $("#submit-msg").click(function() {
                 	if ($("#jlname").val() != '') {
