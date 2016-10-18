@@ -275,7 +275,13 @@ if ($result->num_rows > 0) {
                                                             echo $rdateNew ?></td>
                                                 <td><?php	$tmpid11=$row["jcid"] ; include "customerdashboard.php"; echo $tmpcustomer;?></td>
                                                 <td><?php	echo $row["wname"] ;?></td>
-                                                <td><?php	$address = $row["address1"]; $addsplit = explode(",", $address); echo $addsplit[1] ;?></td>
+                                                <td><?php	if (!empty($row["city5"])) { echo $row["city5"]; } 
+                                                        elseif (!empty($row["city4"])) { echo $row["city4"]; }
+                                                        elseif (!empty($row["city3"])) { echo $row["city3"]; }
+                                                        elseif (!empty($row["city2"])) { echo $row["city2"]; }
+                                                        else { echo $row["city1"]; } ?>
+                                                        
+                                                </td>
 												<td><?php   $tmpid1=$row["jsid"] ; include "serverdashboard.php"; echo $tmpserver;//echo $row["sname"] ;?></td>
                                                 <td><?php	echo $row["cdisposition"] ;?></td>
                                                 <td><?php
