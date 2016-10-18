@@ -535,43 +535,219 @@ $row = $result->fetch_assoc();
                                                         </div>
                                                     </div>
                                                 </div>
+												
+												<div class="box attemptbox" id="attempt-box1">
+													<div class="box-header">
+					                                    <h3 class="box-title" >Attempt 1</h3>
 
-                                                <div class="row">
-                                                    <div class="col-xs-12">
-                                                        <div class="row">
-                                                            <div class="col-sm-6">
-                                                                <div class="form-group">
-                                                                    <label for="firmName">Address 1</label>
-                                                                    <input name="address1" type="text" class="form-control" id="firmName" placeholder="Address 1" value="<?php echo $row["address1"]; ?>">
-                                                                </div>
-                                                            </div>
-                                                            <div class="col-sm-6">
-                                                                <div class="form-group">
-                                                                    <label for="firmName">Attempt 1</label>
-                                                                    <textarea name="attempt1" class="form-control"> <?php echo $row["attempt1"]; ?></textarea>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="row">
-                                                    <div class="col-xs-12">
-                                                        <div class="row">
-                                                            <div class="col-sm-6">
-                                                                <div class="form-group">
-                                                                    <label for="firmName">Address 2</label>
-                                                                    <input name="address2" type="text" class="form-control" id="firmName" placeholder="Address 2" value="<?php echo $row["address2"]; ?>">
-                                                                </div>
-                                                            </div>
-                                                            <div class="col-sm-6">
-                                                                <div class="form-group">
-                                                                    <label for="firmName">Attempt 2</label>
-                                                                    <textarea name="attempt2" class="form-control"> <?php echo $row["attempt2"]; ?></textarea>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
+					                                    <div class="box-tools pull-right">
+					                                        <button class="btn btn-default btn-sm" data-widget="collapse" onclick="return false;" data-toggle="tooltip" title="" data-original-title="Collapse"><i class="fa fa-minus"></i></button>
+					                                    </div>
+					                                </div><!-- /.box-header -->
+				                                    <div class="box-body">
+		                                                <div class="row">
+		                                                    <div class="col-xs-12">
+		                                                        <div class="row">
+		                                                            <div class="col-sm-6">
+		                                                                <div class="form-group">
+		                                                                    <label for="firmName">Address</label>
+		                                                                    <input name="address1" type="text" class="form-control" id="address1" placeholder="Address 1" value="<?php echo $row["address1"]; ?>">
+		                                                                </div>
+		                                                            </div>
+		                                                            <div class="col-sm-3">
+		                                                                <div class="form-group">
+		                                                                    <label for="city">City</label>
+		                                                                    <input name="city1" type="text" class="form-control" id="city1" placeholder="City" value="">
+		                                                                </div>
+		                                                            </div>
+		                                                            <div class="col-sm-3">
+		                                                                <div class="form-group">
+		                                                                    <label for="firmName">State/Zip</label>
+		                                                                    <input name="state1" type="text" class="form-control" id="state1" placeholder="State/Zip" value="">
+		                                                                </div>
+		                                                            </div>
+		                                                            <div class="col-sm-12">
+		                                                                <div class="form-group">
+		                                                                    <label for="firmName">Attempt Notes</label>
+		                                                                    <textarea name="attempt1" class="form-control"> <?php echo $row["attempt1"]; ?></textarea>
+		                                                                </div>
+		                                                            </div>
+		                                                        </div>
+		                                                    </div>
+		                                                </div>
+	                                                </div> <!-- end box body -->
+                                                </div><!-- end attempt box 1 -->
+                                                
+                                                <div class="box attemptbox" id="attempt-box2" style="display: none">
+													<div class="box-header">
+					                                    <h3 class="box-title" >Attempt 2</h3>
+
+					                                    <div class="box-tools pull-right">
+					                                        <button class="btn btn-default btn-sm" data-widget="collapse" onclick="return false;" data-toggle="tooltip" title="" data-original-title="Collapse"><i class="fa fa-minus"></i></button>
+					                                    </div>
+					                                </div><!-- /.box-header -->
+				                                    <div class="box-body">
+		                                                <div class="row">
+		                                                    <div class="col-xs-12">
+		                                                        <div class="row">
+		                                                            <div class="col-sm-6">
+		                                                                <div class="form-group">
+		                                                                    <label for="firmName">Address</label>
+		                                                                    <input name="address2" type="text" class="form-control" id="address2" placeholder="Address 2" value="<?php echo $row["address2"]; ?>">
+		                                                                </div>
+		                                                            </div>
+		                                                            <div class="col-sm-3">
+		                                                                <div class="form-group">
+		                                                                    <label for="city">City</label>
+		                                                                    <input name="city2" type="text" class="form-control" id="city2" placeholder="City" value="">
+		                                                                </div>
+		                                                            </div>
+		                                                            <div class="col-sm-3">
+		                                                                <div class="form-group">
+		                                                                    <label for="firmName">State/Zip</label>
+		                                                                    <input name="state2" type="text" class="form-control" id="state2" placeholder="State/Zip" value="">
+		                                                                </div>
+		                                                            </div>
+		                                                            <div class="col-sm-12">
+		                                                                <div class="form-group">
+		                                                                    <label for="firmName">Attempt Notes</label>
+		                                                                    <textarea name="attempt2" class="form-control"> <?php echo $row["attempt2"]; ?></textarea>
+		                                                                </div>
+		                                                            </div>
+		                                                        </div>
+		                                                    </div>
+		                                                </div>
+	                                                </div> <!-- end box body -->
+                                                </div><!-- end attempt box 2 -->
+
+                                                <div class="box attemptbox" id="attempt-box3" style="display: none">
+													<div class="box-header">
+					                                    <h3 class="box-title" >Attempt 3</h3>
+
+					                                    <div class="box-tools pull-right">
+					                                        <button class="btn btn-default btn-sm" data-widget="collapse" onclick="return false;" data-toggle="tooltip" title="" data-original-title="Collapse"><i class="fa fa-minus"></i></button>
+					                                    </div>
+					                                </div><!-- /.box-header -->
+				                                    <div class="box-body">
+		                                                <div class="row">
+		                                                    <div class="col-xs-12">
+		                                                        <div class="row">
+		                                                            <div class="col-sm-6">
+		                                                                <div class="form-group">
+		                                                                    <label for="firmName">Address</label>
+		                                                                    <input name="address3" type="text" class="form-control" id="address3" placeholder="Address 3" value="<?php echo $row["address3"]; ?>">
+		                                                                </div>
+		                                                            </div>
+		                                                            <div class="col-sm-3">
+		                                                                <div class="form-group">
+		                                                                    <label for="city">City</label>
+		                                                                    <input name="city3" type="text" class="form-control" id="city3" placeholder="City" value="">
+		                                                                </div>
+		                                                            </div>
+		                                                            <div class="col-sm-3">
+		                                                                <div class="form-group">
+		                                                                    <label for="firmName">State/Zip</label>
+		                                                                    <input name="state3" type="text" class="form-control" id="state23" placeholder="State/Zip" value="">
+		                                                                </div>
+		                                                            </div>
+		                                                            <div class="col-sm-12">
+		                                                                <div class="form-group">
+		                                                                    <label for="firmName">Attempt Notes</label>
+		                                                                    <textarea name="attempt3" class="form-control"> <?php echo $row["attempt3"]; ?></textarea>
+		                                                                </div>
+		                                                            </div>
+		                                                        </div>
+		                                                    </div>
+		                                                </div>
+	                                                </div> <!-- end box body -->
+                                                </div><!-- end attempt box 3 -->
+
+                                                <div class="box attemptbox" id="attempt-box4" style="display: none">
+													<div class="box-header">
+					                                    <h3 class="box-title" >Attempt 4</h3>
+
+					                                    <div class="box-tools pull-right">
+					                                        <button class="btn btn-default btn-sm" data-widget="collapse" onclick="return false;" data-toggle="tooltip" title="" data-original-title="Collapse"><i class="fa fa-minus"></i></button>
+					                                    </div>
+					                                </div><!-- /.box-header -->
+				                                    <div class="box-body">
+		                                                <div class="row">
+		                                                    <div class="col-xs-12">
+		                                                        <div class="row">
+		                                                            <div class="col-sm-6">
+		                                                                <div class="form-group">
+		                                                                    <label for="firmName">Address</label>
+		                                                                    <input name="address24" type="text" class="form-control" id="address4" placeholder="Address 4" value="<?php echo $row["address4"]; ?>">
+		                                                                </div>
+		                                                            </div>
+		                                                            <div class="col-sm-3">
+		                                                                <div class="form-group">
+		                                                                    <label for="city">City</label>
+		                                                                    <input name="city4" type="text" class="form-control" id="city4" placeholder="City" value="">
+		                                                                </div>
+		                                                            </div>
+		                                                            <div class="col-sm-3">
+		                                                                <div class="form-group">
+		                                                                    <label for="firmName">State/Zip</label>
+		                                                                    <input name="state4" type="text" class="form-control" id="state4" placeholder="State/Zip" value="">
+		                                                                </div>
+		                                                            </div>
+		                                                            <div class="col-sm-12">
+		                                                                <div class="form-group">
+		                                                                    <label for="firmName">Attempt Notes</label>
+		                                                                    <textarea name="attempt4" class="form-control"> <?php echo $row["attempt4"]; ?></textarea>
+		                                                                </div>
+		                                                            </div>
+		                                                        </div>
+		                                                    </div>
+		                                                </div>
+	                                                </div> <!-- end box body -->
+                                                </div><!-- end attempt box 2 -->
+
+                                                <div class="box attemptbox" id="attempt-box5" style="display: none">
+													<div class="box-header">
+					                                    <h3 class="box-title" >Attempt 5</h3>
+
+					                                    <div class="box-tools pull-right">
+					                                        <button class="btn btn-default btn-sm" data-widget="collapse" onclick="return false;" data-toggle="tooltip" title="" data-original-title="Collapse"><i class="fa fa-minus"></i></button>
+					                                    </div>
+					                                </div><!-- /.box-header -->
+				                                    <div class="box-body">
+		                                                <div class="row">
+		                                                    <div class="col-xs-12">
+		                                                        <div class="row">
+		                                                            <div class="col-sm-6">
+		                                                                <div class="form-group">
+		                                                                    <label for="firmName">Address</label>
+		                                                                    <input name="address25" type="text" class="form-control" id="address5" placeholder="Address 5" value="<?php echo $row["address5"]; ?>">
+		                                                                </div>
+		                                                            </div>
+		                                                            <div class="col-sm-3">
+		                                                                <div class="form-group">
+		                                                                    <label for="city">City</label>
+		                                                                    <input name="city5" type="text" class="form-control" id="city5" placeholder="City" value="">
+		                                                                </div>
+		                                                            </div>
+		                                                            <div class="col-sm-3">
+		                                                                <div class="form-group">
+		                                                                    <label for="firmName">State/Zip</label>
+		                                                                    <input name="state25" type="text" class="form-control" id="state5" placeholder="State/Zip" value="">
+		                                                                </div>
+		                                                            </div>
+		                                                            <div class="col-sm-12">
+		                                                                <div class="form-group">
+		                                                                    <label for="firmName">Attempt Notes</label>
+		                                                                    <textarea name="attempt5" class="form-control"> <?php echo $row["attempt5"]; ?></textarea>
+		                                                                </div>
+		                                                            </div>
+		                                                        </div>
+		                                                    </div>
+		                                                </div>
+	                                                </div> <!-- end box body -->
+                                                </div><!-- end attempt box 2 -->
+
+                                                <a href="javascript:void(0)" id="addattempt">Add New Attempt</a>
+
                                             </div>
                                           
                                         </div>
@@ -999,6 +1175,19 @@ $row = $result->fetch_assoc();
 				        $("#submit-msg").click();
 				        return false;
 				    }
+				});
+
+				$("#addattempt").click(function() {
+					if (!$("#attempt-box2").is(':visible')) {
+						$("#attempt-box2").show();
+					} else if (!$("#attempt-box3").is(':visible')) {
+						$("#attempt-box3").show();
+					} else if (!$("#attempt-box4").is(':visible')) {
+						$("#attempt-box4").show();
+					} else if (!$("#attempt-box5").is(':visible')) {
+						$("#attempt-box5").show();
+						$(this).hide();
+					}
 				});
           
                 $("#submit-msg").click(function() {
