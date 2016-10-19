@@ -350,7 +350,7 @@ mysqli_close($conn);
 	 $tmprec = "<a href='jobView.php?id=".$Recentrow["ljid"]."'>Job #".$Recentrow["ljid"]."</a> ".$tmprec;
 	 
 	 ?>
-	 <li><i class="fa fa-file-text-o"></i> <?php echo $tmprec ?>.</li>
+	 <li><i class="fa fa-file-text-o"></i> <?php echo $tmprec ?></li>
 	 <?php
 	 
 }

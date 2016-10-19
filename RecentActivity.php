@@ -11,7 +11,7 @@ if ($conn->connect_error) {
 //echo "Connected successfully";
 
 
-$RecentActivitysql ="SELECT * FROM `joblog` where chkimg != 2 ORDER BY `logid` DESC LIMIT 10 "; 
+$RecentActivitysql ="SELECT * FROM `joblog` ORDER BY `logid` DESC LIMIT 10 "; 
 
 $RecentActivityresult = $conn->query($RecentActivitysql);
 
