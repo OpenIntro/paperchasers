@@ -453,7 +453,7 @@ $row = $result->fetch_assoc();
                                             <div class="btn btn-primary pull-right btn-hover" style="margin-right: 5px;" data-toggle="modal" data-target="#emailModal"><i class="fa fa-envelope"></i> Email Client</div>
                                        <br/>	<br/><?php $tmparch1 = "delete1.php?id=".$tmpid;  ?>
 									     
-										 <div class="btn btn-danger pull-right btn-hover" style="margin-right: 5px;" data-toggle="modal" data-target="#deleteModal"><i class="fa fa-archive"></i> DELETE Job</div>
+										 <div class="btn btn-danger pull-right btn-hover" style="margin-right: 5px;" data-toggle="modal" data-target="#deleteModal"><i class="fa fa-archive"></i> Delete Job</div>
 										 
 																				
 									   </div>
@@ -675,7 +675,7 @@ $row = $result->fetch_assoc();
 		                                                            <div class="col-sm-6">
 		                                                                <div class="form-group">
 		                                                                    <label for="firmName">Address</label>
-		                                                                    <input name="address24" type="text" class="form-control" id="address4" placeholder="Address 4" value="<?php echo $row["address4"]; ?>">
+		                                                                    <input name="address4" type="text" class="form-control" id="address4" placeholder="Address 4" value="<?php echo $row["address4"]; ?>">
 		                                                                </div>
 		                                                            </div>
 		                                                            <div class="col-sm-3">
@@ -717,7 +717,7 @@ $row = $result->fetch_assoc();
 		                                                            <div class="col-sm-6">
 		                                                                <div class="form-group">
 		                                                                    <label for="firmName">Address</label>
-		                                                                    <input name="address25" type="text" class="form-control" id="address5" placeholder="Address 5" value="<?php echo $row["address5"]; ?>">
+		                                                                    <input name="address5" type="text" class="form-control" id="address5" placeholder="Address 5" value="<?php echo $row["address5"]; ?>">
 		                                                                </div>
 		                                                            </div>
 		                                                            <div class="col-sm-3">
@@ -729,7 +729,7 @@ $row = $result->fetch_assoc();
 		                                                            <div class="col-sm-3">
 		                                                                <div class="form-group">
 		                                                                    <label for="firmName">State/Zip</label>
-		                                                                    <input name="state5" type="text" class="form-control" id="state5" placeholder="State/Zip" value="<?php echo $row["state1"]; ?>">
+		                                                                    <input name="state5" type="text" class="form-control" id="state5" placeholder="State/Zip" value="<?php echo $row["state5"]; ?>">
 		                                                                </div>
 		                                                            </div>
 		                                                            <div class="col-sm-12">
