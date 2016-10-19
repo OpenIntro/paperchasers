@@ -31,7 +31,6 @@ $target_file = $target_dir.$fname;
 $uploadOk = 1;
 
 
-
 // Check if image file is a actual image or fake image
 if(isset($_POST["submit"])) {
     $check = getimagesize($_FILES["fileToUpload"]["tmp_name"]);
@@ -370,7 +369,7 @@ $row = $result->fetch_assoc();
 
 				<form action="jobView.php" method="post" enctype="multipart/form-data" >
                 <!-- Main content -->
-                <section class="content">
+                <section class="content" id="jobcontent">
 
                     <div class="row">
                         <div class="col-md-12">
@@ -530,7 +529,7 @@ $row = $result->fetch_assoc();
                                                     <div class="col-xs-12">
                                                         <div class="form-group">
                                                             <label for="firmName">Witness name</label>
-                                                            <input name="wname" type="text" class="form-control" id="firmName" placeholder="Witness" value="<?php echo $row["wname"]; ?>">
+                                                            <input name="wname" type="text" class="form-control" id="witnessName" placeholder="Witness" value="<?php echo $row["wname"]; ?>">
                                                         </div>
                                                     </div>
                                                 </div>
@@ -745,7 +744,7 @@ $row = $result->fetch_assoc();
 	                                                </div> <!-- end box body -->
                                                 </div><!-- end attempt box 2 -->
 
-                                                <a href="javascript:void(0)" id="addattempt">Add New Attempt</a>
+                                                <div class="btn btn-primary pull-right btn-hover" id="addattempt">Add New Attempt</div>
 
                                             </div>
                                           
@@ -992,37 +991,37 @@ $row = $result->fetch_assoc();
                                             <div class="row">
                                             	<div class="col-xs-12 col-md-4 col-md-offset-4">
                                                     <div class="form-group" style="text-align: center;">
-                                                        <label for="firmName">Cause Number</label>
-                                                        <input name="cnumber" type="text" class="form-control" id="firmName" placeholder="Cause Number" tabindex="1"  style="text-align: center;" value="<?php echo $row["cnumber"]; ?>">
+                                                        <label for="causenumber">Cause Number</label>
+                                                        <input name="cnumber" type="text" class="form-control" id="causenumber" placeholder="Cause Number" tabindex="1"  style="text-align: center;" value="<?php echo $row["cnumber"]; ?>">
                                                     </div>
                                                 </div>
                                             </div>
                                             <div class="row">
                                             	<div class="col-xs-6">
                                                     <div class="form-group">
-                                                        <label for="firmName">Plaintiff</label>
-                                                        <input name="plaintiff" type="text" class="form-control" id="firmName" placeholder="Plaintiff" tabindex="2" value="<?php echo $row["plaintiff"]; ?>">
+                                                        <label for="plaintiff">Plaintiff</label>
+                                                        <input name="plaintiff" type="text" class="form-control" id="plaintiff" placeholder="Plaintiff" tabindex="2" value="<?php echo $row["plaintiff"]; ?>">
                                                         <span class="between"><strong>vs.</strong></span>
                                                     </div>
                                                 </div>
                                                 <div class="col-xs-6">
                                                     <div class="form-group">
-                                                        <label for="clientName">Court Info</label>
-                                                        <input name="court" type="text" class="form-control" id="firmName" placeholder="Court Info" tabindex="4" value="<?php echo $row["court"]; ?>">
+                                                        <label for="courtinfo">Court Info</label>
+                                                        <input name="court" type="text" class="form-control" id="courtinfo" placeholder="Court Info" tabindex="4" value="<?php echo $row["court"]; ?>">
                                                     </div>
                                                 </div>
                                             </div>
                                             <div class="row">
                                             	<div class="col-xs-6">
                                                     <div class="form-group">
-                                                        <label for="clientName">Defendant</label>
-                                                        <input name="defendant" type="text" class="form-control" id="firmName" placeholder="Defendant" tabindex="3" value="<?php echo $row["defendant"]; ?>">
+                                                        <label for="defendant">Defendant</label>
+                                                        <input name="defendant" type="text" class="form-control" id="defendant" placeholder="Defendant" tabindex="3" value="<?php echo $row["defendant"]; ?>">
                                                     </div>
                                                 </div>
                                                 <div class="col-xs-6">
                                                     <div class="form-group">
-                                                        <label for="firmName">County/State</label>
-                                                        <input name = "city" type="text" class="form-control" id="firmName" placeholder="County/State" tabindex="5" value="<?php echo $row["jcity"]; ?>">
+                                                        <label for="country">County/State</label>
+                                                        <input name="city" type="text" class="form-control" id="county" placeholder="County/State" tabindex="5" value="<?php echo $row["jcity"]; ?>">
                                                     </div>
                                                 </div>
                                             </div>
@@ -1053,18 +1052,19 @@ $row = $result->fetch_assoc();
                 <form role="form">
                   <div class="form-group">
                     <label for="recipient-name" class="control-label">Recipient:</label>
-                    <input type="text" class="form-control" id="recipient-name" value="info@florrickagos.com">
+                    <input type="text" class="form-control" id="recipient-name" value="<?php echo $tmpemail; ?>">
                   </div>
                   <div class="form-group">
-                    <label for="message-text" class="control-label">Message:</label>
-                    <p style="color:red"><strong>This is not currently working. Updating soon</strong></p>
-                    <p>All attempts, address info and case style can be emailed to the client with the click of a button.</p>
+                    <label for="emailMessage" class="control-label">Message:</label>
+                    <textarea name="emailMessage" id="emailMessage" class="form-control"></textarea>
+                    <br />
+                    <p>All attempts, address info and case style will be emailed to the email addresses listed above. Multiple email addresses should be separated with a comma.</p>
                   </div>
                 </form>
               </div>
               <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Send message</button>
+                <button type="button" class="btn btn-primary" id="btn-email-client">Send message</button>
               </div>
             </div>
           </div>
@@ -1211,7 +1211,7 @@ $row = $result->fetch_assoc();
 					$('#attempt-box1 .btn-sm i').addClass('fa-plus').removeClass('fa-minus');
 				} 
           
-                $("#submit-msg").click(function() {
+                $("#submit-msg").on( "click", function() {
                 	if ($("#jlname").val() != '') {
 	                    var jlname= $("#jlname").val();
 	                    var jid= $("#id").val();
@@ -1266,6 +1266,53 @@ $row = $result->fetch_assoc();
                 	$(this).closest('.date-save').show();
                 	$('#updatedates').show();
                 });
+
+				$('#btn-email-client').on('click', function() {
+					var emaildata = {
+					    causenumber: $("#causenumber").val(),
+					    plaintiff: $("#plaintiff").val(),
+					    defendant: $("#defendant").val(),
+					    courtinfo: $("#courtinfo").val(),
+					    county: $("#county").val(),
+					    witness: $("#witnessName").val(),
+					    currentDisposition: $("input:radio[name='optionsRadios']:checked").val(),
+					    address1: $('#address1').val(),
+					    city1: $('#city1').val(),
+					    state1: $('#state1').val(),
+					    attempt1: $('#attempt1').val(),
+					    address2: $('#address2').val(),
+					    city2: $('#city2').val(),
+					    state2: $('#state2').val(),
+					    attempt2: $('#attempt2').val(),
+					    address3: $('#address3').val(),
+					    city3: $('#city3').val(),
+					    state3: $('#state3').val(),
+					    attempt3: $('#attempt3').val(),
+					    address4: $('#address4').val(),
+					    city4: $('#city4').val(),
+					    state4: $('#state4').val(),
+					    attempt4: $('#attempt4').val(),
+					    address5: $('#address5').val(),
+					    city5: $('#city5').val(),
+					    state5: $('#state5').val(),
+					    attempt5: $('#attempt5').val(),
+					    recipients: $('#recipient-name').val(),
+					    messageTxt: $('#emailMessage').val()
+					};
+
+					$.ajax({
+					    type: "POST",
+					    url: "swift_email.php",
+					    data: emaildata,
+					    success: function(){
+					        $('#emailModal').modal('toggle');
+					        $('#emailModal #emailMessage').val('');
+					        $('#jobcontent').prepend('<div class="alert alert-success alert-dismissable"><i class="fa fa-check"></i><button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button><strong>Success!</strong> An email has been sent to the client.</div>');
+					        $('#jlname').val('An email has been sent to '+$('#recipient-name').val());
+					        $( "#submit-msg" ).trigger( "click" );
+					    }
+					});
+				});
 
             });
             
